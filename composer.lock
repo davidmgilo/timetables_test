@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "22d84e4f60d372841e35a1ead87675be",
-    "content-hash": "172db3002612abd1d828801a03d71ae8",
+    "hash": "25ada7d1383a19bb002729ac9f08c5e1",
+    "content-hash": "4d228b1c9409ef4afdafad232e77e46c",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -1366,6 +1366,34 @@
                 "uuid"
             ],
             "time": "2016-10-02 15:51:17"
+        },
+        {
+            "name": "scool/timetables",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/alumne/Code/scool/timetables",
+                "reference": "b55e19c455bb9d1a07baf55f4e8dd314352667b8",
+                "shasum": null
+            },
+            "require": {
+                "laravel/framework": "^5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Scool\\Timetables\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Martinez",
+                    "email": "davidmgilo@gmail.com"
+                }
+            ]
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3880,7 +3908,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "acacha/admin-lte-template-laravel": 20
+        "acacha/admin-lte-template-laravel": 20,
+        "scool/timetables": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
