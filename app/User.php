@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    // Has to be the same as in foundation
+    // Has to be the same as in foundation TODO
     use Notifiable;
 
     /**
