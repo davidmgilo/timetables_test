@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Scool\Timetables\Providers\TimetablesServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
         //
 
         /*
