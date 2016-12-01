@@ -168,6 +168,7 @@ return [
          */
         Scool\Timetables\Providers\TimetablesServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
         //
 
         /*
