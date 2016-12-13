@@ -13,7 +13,15 @@ class AttendancesControllerTest extends TestCase
 
     public function setUp()
     {
-        
+        // El que s'executa al inici.
+        //Mock
+        $this->repository = Mockery::mock(StudyRespository::class);
+    }
+
+    public function tearDown()
+    {
+        // El que s'executa al final.
+        Mockery::close();
     }
     
     public function testIndexNotLogged()
