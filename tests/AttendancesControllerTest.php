@@ -11,6 +11,11 @@ class AttendancesControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp()
+    {
+        
+    }
+    
     public function testIndexNotLogged()
     {
         $this->get('attendances');
@@ -21,8 +26,7 @@ class AttendancesControllerTest extends TestCase
     {
 //        dd(route('attendances.index'));
 //        $attendances = factory(\Scool\Timetables\Models\Attendance::class,50)->create();
-        $user = factory(App\User::class)->create();
-        $this->actingAs($user);
+        $this->login();
         $this->get('attendances');
         $this->assertResponseOk();
 
@@ -38,6 +42,15 @@ class AttendancesControllerTest extends TestCase
 
     public function testStore()
     {
-        
+        $this->login();
+        $this->post('attendances');
+
+        $this->assertRedirectedToRoute('attendances.create');
+    }
+
+    protected function login()
+    {
+        $user = factory(App\User::class)->create();
+        $this->actingAs($user);
     }
 }
