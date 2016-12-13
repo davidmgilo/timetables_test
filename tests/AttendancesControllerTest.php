@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Scool\Timetables\Repositories\AttendanceRepository;
 
 /**
  * Class AttendancesControllerTest
@@ -11,11 +12,13 @@ class AttendancesControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp()
+    protected $repository;
+
+    public function __construct()
     {
         // El que s'executa al inici.
         //Mock
-        $this->repository = Mockery::mock(StudyRespository::class);
+        $this->repository = Mockery::mock(AttendanceRepository::class);
     }
 
     public function tearDown()
@@ -35,15 +38,25 @@ class AttendancesControllerTest extends TestCase
 //        dd(route('attendances.index'));
 //        $attendances = factory(\Scool\Timetables\Models\Attendance::class,50)->create();
         $this->login();
+
+        $this->repository->shouldReceive('all')->once()->andReturn(collect(
+            $this->createDummyAttendances()
+        ));
+        $this->repository->shouldReceive('pushCriteria')->once();
+
+        $this->app->instance(AttendanceRepository::class, $this->repository);
+
         $this->get('attendances');
         $this->assertResponseOk();
 
         $this->assertViewHas('attendances');
 
         $attendances = $this->response->getOriginalContent()->getData()['attendances'];
-        $this->assertInstanceOf(\Illuminate\Database\Eloquent\Collection::class , $attendances);
+        $this->assertInstanceOf(\Illuminate\Support\Collection::class , $attendances);
 
-        //1) Preparació
+        $this->assertEquals(count($attendances),2);
+
+        //1) Preparació -> Isolation/Mocking
         //2) Execució
         //3) Assertions
     }
@@ -53,12 +66,24 @@ class AttendancesControllerTest extends TestCase
         $this->login();
         $this->post('attendances');
 
-        $this->assertRedirectedToRoute('attendances.create');
+//        $this->assertRedirectedToRoute('attendances.create');
     }
 
     protected function login()
     {
         $user = factory(App\User::class)->create();
         $this->actingAs($user);
+    }
+
+    private function createDummyAttendances()
+    {
+        $attendance1= new \Scool\Timetables\Models\Attendance();
+        $attendance2= new \Scool\Timetables\Models\Attendance();
+
+        $attendances= [
+          $attendance1,
+            $attendance2
+        ];
+        return collect($attendances);
     }
 }
