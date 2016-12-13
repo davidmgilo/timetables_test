@@ -11,12 +11,18 @@ class AttendancesControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function testIndexNotLogged()
+    {
+        $this->get('attendances');
+        $this->assertRedirectedTo('login');
+    }
+
     public function testIndex()
     {
 //        dd(route('attendances.index'));
         $user = factory(App\User::class)->create();
         $this->actingAs($user);
-        dd($this->call('GET','attendances'));
+        $this->get('attendances');
         $this->assertResponseOk();
 
 
