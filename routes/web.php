@@ -20,5 +20,5 @@ Route::group(['middleware' => 'auth'], function(){
         return view('tokens');
     });
 
-    Route::resource('attendances', 'AttendancesController');
+//    Route::resource('attendances', 'AttendancesController');
 });
