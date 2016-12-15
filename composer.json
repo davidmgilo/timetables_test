@@ -11,6 +11,7 @@
         "barryvdh/laravel-debugbar": "^2.3",
         "acacha/admin-lte-template-laravel": "dev-master",
         "davidmgilo/timetables" : "dev-master",
+        "acacha/names" : "dev-master",
         "laravel/passport": "^1.0",
         "prettus/l5-repository": "^2.6"
     },
