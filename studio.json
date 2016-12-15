@@ -1,6 +1,7 @@
 {
     "version": 2,
     "paths": [
-        "/home/alumne/Code/scool/timetables"
+        "/home/alumne/Code/scool/timetables",
+        "/home/alumne/Code/scool/stateful-eloquent"
     ]
 }
