@@ -25,17 +25,19 @@
                     <!-- /.box-header -->
                     <div class="box-body">
 
+                        @if(Session::has('message'))
                         <div class="alert alert-success alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                             <h4><i class="icon fa fa-check"></i> Done!</h4>
-                            Attendance created ok!
+                            {{ session('message') }}
                         </div>
+                        @endif
 
-                        <div class="alert alert-danger alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            <h4><i class="icon fa fa-ban"></i> Oops!</h4>
-                            Something is wrong.
-                        </div>
+                        {{--<div class="alert alert-danger alert-dismissible">--}}
+                            {{--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>--}}
+                            {{--<h4><i class="icon fa fa-ban"></i> Oops!</h4>--}}
+                            {{--Something is wrong.--}}
+                        {{--</div>--}}
 
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
@@ -51,12 +53,12 @@
                             <!-- text input -->
                             {{ csrf_field() }}
 
-                            @php
+                            <?php
                                $warning = "";
                             if ($errors->has('name')){
                                 $warning = "has-warning";
                             }
-                            @endphp
+                            ?>
 
                             <div class="form-group {{ $warning }}">
                                 <label class="control-label" for="name">
