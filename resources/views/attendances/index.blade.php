@@ -17,15 +17,67 @@
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-times"></i>
                             </button>
                         </div>
                         <!-- /.box-tools -->
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-check"></i> Done!</h4>
+                            Attendance created ok!
+                        </div>
+
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-ban"></i> Oops!</h4>
+                            Something is wrong.
+                        </div>
+
+                        <form role="form" action="{{ route('attendances.store') }}">
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="Name" name="name">
+                            </div>
+
+                            <div class="form-group has-warning">
+                                <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Name </label>
+                                <input type="text" class="form-control" id="inputWarning" placeholder="Name" name="name">
+                                <span class="help-block">Name is required</span>
+                            </div>
+
+                            <!-- input states -->
+                            {{--<div class="form-group has-success">--}}
+                                {{--<label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Input with success</label>--}}
+                                {{--<input type="text" class="form-control" id="inputSuccess" placeholder="Enter ...">--}}
+                                {{--<span class="help-block">Help block with success</span>--}}
+                            {{--</div>--}}
+                            {{--<div class="form-group has-warning">--}}
+                                {{--<label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Input with--}}
+                                    {{--warning</label>--}}
+                                {{--<input type="text" class="form-control" id="inputWarning" placeholder="Enter ...">--}}
+                                {{--<span class="help-block">Help block with warning</span>--}}
+                            {{--</div>--}}
+                            {{--<div class="form-group has-error">--}}
+                                {{--<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Input with--}}
+                                    {{--error</label>--}}
+                                {{--<input type="text" class="form-control" id="inputError" placeholder="Enter ...">--}}
+                                {{--<span class="help-block">Help block with error</span>--}}
+                            {{--</div>--}}
+
+                        </form>
+
                     </div>
                     <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+
                 </div>
 
                 <div class="box box-default">
@@ -35,7 +87,7 @@
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-times"></i>
                             </button>
                         </div>
                     </div>
