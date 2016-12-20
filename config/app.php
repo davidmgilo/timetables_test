@@ -169,6 +169,7 @@ return [
         Scool\Timetables\Providers\TimetablesServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        Spatie\Menu\Laravel\MenuServiceProvider::class,
         //
 
         /*
@@ -248,6 +249,9 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+        'Menu' => Spatie\Menu\Laravel\MenuFacade::class,
+        'Link' => Spatie\Menu\Laravel\Link::class,
+        'Html' => Spatie\Menu\Laravel\Html::class,
         #llum_aliases
 
     ],
