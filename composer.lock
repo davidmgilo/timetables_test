@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/acacha/adminlte-laravel.git",
-                "reference": "60f6bb294167f1233b4a64ee6503e46b67f84b63"
+                "reference": "24cdb0a338133c7de39c7c902c011c8e03a9b447"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acacha/adminlte-laravel/zipball/60f6bb294167f1233b4a64ee6503e46b67f84b63",
-                "reference": "60f6bb294167f1233b4a64ee6503e46b67f84b63",
+                "url": "https://api.github.com/repos/acacha/adminlte-laravel/zipball/24cdb0a338133c7de39c7c902c011c8e03a9b447",
+                "reference": "24cdb0a338133c7de39c7c902c011c8e03a9b447",
                 "shasum": ""
             },
             "require": {
@@ -69,20 +69,20 @@
                 "template",
                 "theme"
             ],
-            "time": "2016-12-14 16:55:04"
+            "time": "2016-12-19 13:23:04"
         },
         {
             "name": "acacha/helpers",
-            "version": "0.1.0",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/acacha/helpers.git",
-                "reference": "2628bc8ede26fc3fd52bdd5c333cf2bb911a5945"
+                "reference": "35a60fe05d8007a77833b530479daa7ab7e5794f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acacha/helpers/zipball/2628bc8ede26fc3fd52bdd5c333cf2bb911a5945",
-                "reference": "2628bc8ede26fc3fd52bdd5c333cf2bb911a5945",
+                "url": "https://api.github.com/repos/acacha/helpers/zipball/35a60fe05d8007a77833b530479daa7ab7e5794f",
+                "reference": "35a60fe05d8007a77833b530479daa7ab7e5794f",
                 "shasum": ""
             },
             "require": {
@@ -122,7 +122,7 @@
                 "helpers",
                 "laravel"
             ],
-            "time": "2016-12-07 14:12:12"
+            "time": "2016-12-19 11:05:08"
         },
         {
             "name": "acacha/names",
@@ -532,15 +532,17 @@
             "dist": {
                 "type": "path",
                 "url": "/home/alumne/Code/scool/timetables",
-                "reference": "695b224c0904cc93abf21129616a4464f6a6c2e3",
+                "reference": "6ef6029818472b3545f94af890fe967f87009793",
                 "shasum": null
             },
             "require": {
                 "acacha/names": "dev-master",
+                "acacha/stateful-eloquent": "dev-master",
                 "fzaninotto/faker": "^1.6",
                 "laravel/framework": "^5.3",
                 "prettus/l5-repository": "^2.6",
-                "scool/foundation": "^0.1.0"
+                "scool/foundation": "^0.1.0",
+                "spatie/laravel-permission": "^1.5"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.6",
@@ -817,28 +819,28 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "2693c101803ca78b27972d84081d027fca790a1e"
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/2693c101803ca78b27972d84081d027fca790a1e",
-                "reference": "2693c101803ca78b27972d84081d027fca790a1e",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -864,7 +866,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-11-18 17:47:58"
+            "time": "2016-12-20 10:07:11"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -2353,6 +2355,59 @@
                 "foundation"
             ],
             "time": "2016-11-17 20:03:50"
+        },
+        {
+            "name": "spatie/laravel-permission",
+            "version": "1.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-permission.git",
+                "reference": "a67a0dca1d3aab7316d2e265c358f3d23ba9278c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/a67a0dca1d3aab7316d2e265c358f3d23ba9278c",
+                "reference": "a67a0dca1d3aab7316d2e265c358f3d23ba9278c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.1.0|~5.2.0|~5.3.0",
+                "laravel/framework": "~5.1.11|~5.2.0|~5.3.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.1.4",
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Permission\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Permission handling for Laravel 5.1",
+            "homepage": "https://github.com/spatie/laravel-permission",
+            "keywords": [
+                "acl",
+                "laravel",
+                "permission",
+                "security",
+                "spatie"
+            ],
+            "time": "2016-12-14 23:41:39"
         },
         {
             "name": "swiftmailer/swiftmailer",
