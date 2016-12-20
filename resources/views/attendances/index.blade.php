@@ -37,18 +37,57 @@
                             Something is wrong.
                         </div>
 
-                        <form role="form" action="{{ route('attendances.store') }}">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <form role="form" action="/attendances" method="post">
                             <!-- text input -->
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" class="form-control" placeholder="Name" name="name">
+                            {{ csrf_field() }}
+
+                            @php
+                               $warning = "";
+                            if ($errors->has('name')){
+                                $warning = "has-warning";
+                            }
+                            @endphp
+
+                            <div class="form-group {{ $warning }}">
+                                <label class="control-label" for="name">
+                                    @if ($errors->has('name'))
+                                    <i class="fa fa-bell-o"></i>
+                                    @endif
+                                    Name </label>
+                                <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+                                @foreach ($errors->get('name') as $message) {
+                                    <span class="help-block">{{ $message }}</span>
+                                @endforeach
                             </div>
 
-                            <div class="form-group has-warning">
-                                <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Name </label>
-                                <input type="text" class="form-control" id="inputWarning" placeholder="Name" name="name">
-                                <span class="help-block">Name is required</span>
-                            </div>
+                            {{--@if ($errors->has('name'))--}}
+                                {{--<div class="form-group has-warning">--}}
+                                    {{--<label class="control-label" for="name"><i class="fa fa-bell-o"></i> Name </label>--}}
+                                    {{--<input type="text" class="form-control" id="name" placeholder="Name" name="name">--}}
+                                    {{--@foreach ($errors->get('name') as $message) {--}}
+                                        {{--<span class="help-block">{{ $message }}</span>--}}
+                                    {{--@endforeach--}}
+                                {{--</div>--}}
+                            {{--@else--}}
+                            {{--<div class="form-group">--}}
+                                {{--<label class="control-label" for="name"> Name</label>--}}
+                                {{--<input type="text" class="form-control" placeholder="Name" name="name">--}}
+                            {{--</div>--}}
+                            {{--@endif--}}
+
+
+
+                            <input type="submit" value="create"/>
 
                             <!-- input states -->
                             {{--<div class="form-group has-success">--}}
