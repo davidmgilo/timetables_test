@@ -49,7 +49,7 @@
                             </div>
                         @endif
 
-                        <form role="form" action="/attendances" method="post">
+                        <form role="form" action="/attendances" method="post" id="createAtt">
                             <!-- text input -->
                             {{ csrf_field() }}
 
@@ -66,7 +66,7 @@
                                     <i class="fa fa-bell-o"></i>
                                     @endif
                                     Name </label>
-                                <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+                                <input type="text" class="form-control" id="name" placeholder="Name" name="name" value = "{{old('name')}}">
                                 @foreach ($errors->get('name') as $message) {
                                     <span class="help-block">{{ $message }}</span>
                                 @endforeach
@@ -89,7 +89,7 @@
 
 
 
-                            <input type="submit" value="create"/>
+                            {{--<input type="submit" value="create"/>--}}
 
                             <!-- input states -->
                             {{--<div class="form-group has-success">--}}
@@ -116,7 +116,7 @@
                     <!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-primary" onclick="document.getElementById('createAtt').submit();">Create</button>
                     </div>
 
                 </div>
