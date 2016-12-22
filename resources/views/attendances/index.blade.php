@@ -15,9 +15,9 @@
                         <h3 class="box-title">Create Attendance</h3>
 
                         <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-minus"></i>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-times"></i>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
                             </button>
                         </div>
                         <!-- /.box-tools -->
@@ -55,19 +55,27 @@
 
                             <?php
                                $warning = "";
-                            if ($errors->has('name')){
+                            if ($errors->has('notes')){
                                 $warning = "has-warning";
                             }
                             ?>
 
                             <div class="form-group {{ $warning }}">
-                                <label class="control-label" for="name">
-                                    @if ($errors->has('name'))
+
+                                <input type="hidden" name="user_id" value="1">
+                                <input type="hidden" name="day_id" value="1">
+                                <input type="hidden" name="timeslot_id" value="1">
+                                <input type="hidden" name="studysubmodule_id" value="1">
+                                <input type="hidden" name="type_id" value="1">
+                                <input type="hidden" name="date" value="{{ date("Y-m-d H:i:s") }}">
+
+                                <label class="control-label" for="notes">
+                                    @if ($errors->has('notes'))
                                     <i class="fa fa-bell-o"></i>
                                     @endif
-                                    Name </label>
-                                <input type="text" class="form-control" id="name" placeholder="Name" name="name" value = "{{old('name')}}">
-                                @foreach ($errors->get('name') as $message) {
+                                    Notes </label>
+                                <input type="text" class="form-control" id="notes" placeholder="Note" name="notes" value = "{{old('notes')}}">
+                                @foreach ($errors->get('notes') as $message)
                                     <span class="help-block">{{ $message }}</span>
                                 @endforeach
                             </div>
@@ -126,9 +134,9 @@
                         <h3 class="box-title">Attendances</h3>
 
                         <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-minus"></i>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-times"></i>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
                             </button>
                         </div>
                     </div>
@@ -137,14 +145,14 @@
                                 <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
-                                    <th>Name</th>
+                                    <th>Notes</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach ($attendances as $attendance)
                                     <tr>
                                         <td>{{ $attendance->id }}</td>
-                                        <td>{{ $attendance->name }}</td>
+                                        <td>{{ $attendance->notes }}</td>
                                     </tr>
                                 @endforeach
 
