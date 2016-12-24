@@ -146,6 +146,7 @@
                                 <tr>
                                     <th style="width: 10px">#</th>
                                     <th>Notes</th>
+                                    <th>Accions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -153,6 +154,13 @@
                                     <tr>
                                         <td>{{ $attendance->id }}</td>
                                         <td>{{ $attendance->notes }}</td>
+                                        <td>
+                                            <form action="/attendances/{{$attendance->id}}" method=post class=delete-movie>
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type=submit value="Borra"/>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
 
