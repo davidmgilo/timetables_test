@@ -155,10 +155,11 @@
                                         <td>{{ $attendance->id }}</td>
                                         <td>{{ $attendance->notes }}</td>
                                         <td>
-                                            <form action="/attendances/{{$attendance->id}}" method=post class=delete-movie>
+                                            <button type="button" class="btn btn-info"><i class="fa fa-fw fa-edit"></i></button>
+                                            <form action="/attendances/{{$attendance->id}}" method=post>
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <input type=submit value="Borra"/>
+                                                <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>
