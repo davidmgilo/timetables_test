@@ -146,7 +146,7 @@
                                 <tr>
                                     <th style="width: 10px">#</th>
                                     <th>Notes</th>
-                                    <th>Accions</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
