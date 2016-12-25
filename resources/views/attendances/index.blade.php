@@ -131,6 +131,89 @@
 
                 <div class="box box-default">
                     <div class="box-header with-border">
+                        <h3 class="box-title">Update Attendance</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                        <!-- /.box-tools -->
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
+                        @if(Session::has('message'))
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h4><i class="icon fa fa-check"></i> Done!</h4>
+                                {{ session('message') }}
+                            </div>
+                        @endif
+
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <form role="form" action="/attendances/1" method="post" id="updateAtt">
+                            <!-- text input -->
+                            {{ csrf_field() }}
+
+                            <input type="hidden" name="_method" value="PUT">
+                            {{--<input type="hidden" name="_action" value="/attendances/1"> Doesn't work - normal--}}
+
+                            <?php
+                            $warning = "";
+                            if ($errors->has('notes')){
+                                $warning = "has-warning";
+                            }
+                            ?>
+
+                            <div class="form-group {{ $warning }}">
+
+
+
+                                <input type="hidden" name="id" value="1">
+
+                                <input type="hidden" name="user_id" value="1">
+                                <input type="hidden" name="day_id" value="1">
+                                <input type="hidden" name="timeslot_id" value="1">
+                                <input type="hidden" name="studysubmodule_id" value="1">
+                                <input type="hidden" name="type_id" value="1">
+                                <input type="hidden" name="date" value="{{ date("Y-m-d H:i:s") }}">
+
+                                <label class="control-label" for="notes">
+                                    @if ($errors->has('notes'))
+                                        <i class="fa fa-bell-o"></i>
+                                    @endif
+                                    Notes </label>
+                                <input type="text" class="form-control" id="notes" placeholder="Note" name="notes" value = "{{old('notes')}}">
+                                @foreach ($errors->get('notes') as $message)
+                                    <span class="help-block">{{ $message }}</span>
+                                @endforeach
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary" onclick="document.getElementById('updateAtt').submit();">Update</button>
+                    </div>
+
+                </div>
+
+                <div class="box box-default">
+                    <div class="box-header with-border">
                         <h3 class="box-title">Attendances</h3>
 
                         <div class="box-tools pull-right">
@@ -155,7 +238,7 @@
                                         <td>{{ $attendance->id }}</td>
                                         <td>{{ $attendance->notes }}</td>
                                         <td>
-                                            <button type="button" class="btn btn-info"><i class="fa fa-fw fa-edit"></i></button>
+                                            <button type="button" name="att{{$attendance->id}}" class="btn btn-info" onclick="changeUpdateForm({{$attendance}})"><i class="fa fa-fw fa-edit"></i></button>
                                             <form action="/attendances/{{$attendance->id}}" method=post>
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="_method" value="DELETE">
@@ -175,3 +258,9 @@
         </div>
     </div>
 @endsection
+
+<script>
+    function changeUpdateForm(attendance){
+        console.log(attendance.id);
+    }
+</script>
