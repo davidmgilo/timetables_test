@@ -261,6 +261,16 @@
 
 <script>
     function changeUpdateForm(attendance){
-        console.log(attendance.id);
+//        console.log(attendance);
+        var theForm = document.forms['updateAtt'];
+        theForm.action = '/attendances/' + attendance.id;
+        theForm.elements["user_id"].value = attendance.user_id;
+        theForm.elements["day_id"].value = attendance.day_id;
+        theForm.elements["timeslot_id"].value = attendance.timeslot_id;
+        theForm.elements["studysubmodule_id"].value = attendance.studysubmodule_id;
+        theForm.elements["type_id"].value = attendance.type_id;
+        theForm.elements["date"].value = attendance.date;
+        theForm.elements["notes"].value = attendance.notes;
+//        console.log(theForm.action);
     }
 </script>
