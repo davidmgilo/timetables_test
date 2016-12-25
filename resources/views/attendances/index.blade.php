@@ -271,6 +271,7 @@
         theForm.elements["type_id"].value = attendance.type_id;
         theForm.elements["date"].value = attendance.date;
         theForm.elements["notes"].value = attendance.notes;
+        theForm.elements["notes"].focus();
 //        console.log(theForm.action);
     }
 </script>
