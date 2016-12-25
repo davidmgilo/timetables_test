@@ -263,6 +263,7 @@
     function changeUpdateForm(attendance){
 //        console.log(attendance);
         var theForm = document.forms['updateAtt'];
+//        console.log(theForm.elements["user_id"].value);
         theForm.action = '/attendances/' + attendance.id;
         theForm.elements["user_id"].value = attendance.user_id;
         theForm.elements["day_id"].value = attendance.day_id;
@@ -273,5 +274,6 @@
         theForm.elements["notes"].value = attendance.notes;
         theForm.elements["notes"].focus();
 //        console.log(theForm.action);
+//        console.log(theForm.elements["user_id"].value);
     }
 </script>
