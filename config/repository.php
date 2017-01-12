@@ -219,19 +219,21 @@ return [
     |
     */
     'generator'  => [
-        'basePath'      => app_path(),
-        'rootNamespace' => 'App\\',
+        'basePath'      => base_path() . '/vendor/davidmgilo/timetables/src',
+        'databasePath'  => base_path() . '/vendor/davidmgilo/timetables/database',
+        'rootNamespace' => 'Scool\\Timetables\\',
+        'stubsOverridePath' => app_path(),
         'paths'         => [
-            'models'       => 'Entities',
+            'models'       => 'Models',
             'repositories' => 'Repositories',
             'interfaces'   => 'Repositories',
             'transformers' => 'Transformers',
             'presenters'   => 'Presenters',
             'validators'   => 'Validators',
             'controllers'  => 'Http/Controllers',
-            'provider'     => 'RepositoryServiceProvider',
+            'requests'     => 'Http/Requests',
+            'provider'     => 'TimetablesServiceProvider',
             'criteria'     => 'Criteria',
-            'stubsOverridePath' => app_path()
         ]
     ]
 ];
