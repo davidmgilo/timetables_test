@@ -261,6 +261,9 @@
 
 <script>
 
+    window.addEventListener('load', function() {
+        document.getElementById("updateBox").style.display = "none";
+    }, true);
     //window.document.onload = function (){
       //  console.log('Ei');
      //   document.getElementById("updateBox").style.display = "none";
@@ -268,18 +271,29 @@
 
     function changeUpdateForm(attendance){
 //        console.log(attendance);
-        var theForm = document.forms['updateAtt'];
+        if(document.getElementById("updateBox").style.display == "none"){
+            document.getElementById("updateBox").style.display = "block";
+            document.getElementById("createBox").style.display = "none";
+
+            var theForm = document.forms['updateAtt'];
 //        console.log(theForm.elements["user_id"].value);
-        theForm.action = '/attendances/' + attendance.id;
-        theForm.elements["user_id"].value = attendance.user_id;
-        theForm.elements["day_id"].value = attendance.day_id;
-        theForm.elements["timeslot_id"].value = attendance.timeslot_id;
-        theForm.elements["studysubmodule_id"].value = attendance.studysubmodule_id;
-        theForm.elements["type_id"].value = attendance.type_id;
-        theForm.elements["date"].value = attendance.date;
-        theForm.elements["notes"].value = attendance.notes;
-        theForm.elements["notes"].focus();
+            theForm.action = '/attendances/' + attendance.id;
+            theForm.elements["user_id"].value = attendance.user_id;
+            theForm.elements["day_id"].value = attendance.day_id;
+            theForm.elements["timeslot_id"].value = attendance.timeslot_id;
+            theForm.elements["studysubmodule_id"].value = attendance.studysubmodule_id;
+            theForm.elements["type_id"].value = attendance.type_id;
+            theForm.elements["date"].value = attendance.date;
+            theForm.elements["notes"].value = attendance.notes;
+            theForm.elements["notes"].focus();
 //        console.log(theForm.action);
 //        console.log(theForm.elements["user_id"].value);
+
+        }else{
+            document.getElementById("updateBox").style.display = "none";
+            document.getElementById("createBox").style.display = "block";
+        }
+
+
     }
 </script>
