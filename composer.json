@@ -16,7 +16,8 @@
         "laravel/passport": "^1.0",
         "acacha/l5-repository": "dev-master",
         "spatie/laravel-menu": "^2.0",
-        "spatie/laravel-permission": "^1.6"
+        "spatie/laravel-permission": "^1.6",
+        "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
