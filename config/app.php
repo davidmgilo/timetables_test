@@ -170,6 +170,7 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         Spatie\Menu\Laravel\MenuServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
         //
 
         /*

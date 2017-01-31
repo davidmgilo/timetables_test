@@ -1,14 +1,18 @@
 <?php
 
+namespace Tests;
+
+use App\User;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Mockery;
 use Scool\Timetables\Repositories\AttendanceRepository;
 
 /**
  * Class AttendancesControllerTest
  */
-class AttendancesControllerTest extends TestCase
+class AttendancesControllerTest extends BrowserKitTest
 {
     use DatabaseMigrations;
 
@@ -71,7 +75,7 @@ class AttendancesControllerTest extends TestCase
 
     protected function login()
     {
-        $user = factory(App\User::class)->create();
+        $user = factory(User::class)->create();
         $this->actingAs($user);
     }
 
