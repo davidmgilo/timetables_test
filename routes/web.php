@@ -24,5 +24,5 @@ Route::group(['middleware' => 'auth'], function(){
 //    Route::resource('attendances', 'AttendancesController');
 });
 
-Route::get('auth/github', 'Auth\MySocialAuthController@redirectToProvider');
-Route::get('auth/github/callback', 'Auth\MySocialAuthController@handleProviderCallback');
+Route::get('auth/{github}', 'Auth\MySocialAuthController@redirectToProvider');
+Route::get('auth/{github}/callback', 'Auth\MySocialAuthController@handleProviderCallback');
