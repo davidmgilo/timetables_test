@@ -21,7 +21,7 @@ class FacebookAuth implements LoginAuth
         return User::create([
             'name' => $user->name,
             'email' => $user->email,
-            'facebook_id' => $user->id,
+            'facebook_id' => $user->id, //
             'avatar' => $user->avatar,
             'password' => bcrypt('secret')
         ]);

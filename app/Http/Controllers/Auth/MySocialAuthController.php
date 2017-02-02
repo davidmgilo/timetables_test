@@ -45,7 +45,6 @@ class MySocialAuthController extends Controller
         } catch (\Exception $e) {
             return Redirect::to('auth/'.$provider);
         }
-
         if(array_key_exists($provider,self::$services)) {
             $authUser = self::$services[$provider]::findOrCreateUser($user);
             Auth::login($authUser, true);
