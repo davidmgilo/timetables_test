@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Auth\LoginServices\FacebookAuth;
 use App\Http\Controllers\Auth\LoginServices\GithubAuth;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -17,6 +18,7 @@ class MySocialAuthController extends Controller
 {
     public static $services =[
       'github' => GithubAuth::class,
+      'facebook' => FacebookAuth::class,
     ];
 
     /**
