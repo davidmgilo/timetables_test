@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Auth\LoginServices\GithubAuth;
 use App\Http\Controllers\Controller;
-use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
@@ -15,6 +15,10 @@ use Redirect;
  */
 class MySocialAuthController extends Controller
 {
+    public static $services =[
+      'github' => GithubAuth::class,
+    ];
+
     /**
      * Redirect to provider Oauth
      *
@@ -40,48 +44,12 @@ class MySocialAuthController extends Controller
             return Redirect::to('auth/'.$provider);
         }
 
-        $authUser = $this->findOrCreateUser($user, $provider);
-        Auth::login($authUser, true);
-        return Redirect::to('home');
-    }
-
-    /**
-     * Finds the user from the provider in the database.
-     *
-     * @param $User
-     * @param $provider
-     * @return User
-     */
-    private function findOrCreateUser($User, $provider)
-    {
-        switch ($provider) {
-            case 'github' :
-                return $this->findOrcreateGithubUser($User);
-                break;
-            default:
-                break;
+        if(array_key_exists($provider,self::$services)) {
+            $authUser = self::$services[$provider]::findOrCreateUser($user);
+            Auth::login($authUser, true);
+            return Redirect::to('home');
         }
 
-
-    }
-
-    /**
-     *  Finds the github user in the database. If they doesn't exist, it creates them.
-     *
-     * @param $githubUser
-     * @return mixed
-     */
-    public function findOrcreateGithubUser($githubUser)
-    {
-        if ($authUser = User::where('github_id', $githubUser->id)->first()) {
-            return $authUser;
-        }
-        return User::create([
-            'name' => $githubUser->name,
-            'email' => $githubUser->email,
-            'github_id' => $githubUser->id,
-            'avatar' => $githubUser->avatar,
-            'password' => bcrypt('secret')
-        ]);
+        return Redirect::to('login');
     }
 }
