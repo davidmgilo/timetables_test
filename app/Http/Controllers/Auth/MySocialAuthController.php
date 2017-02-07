@@ -42,6 +42,7 @@ class MySocialAuthController extends Controller
     {
         try {
             $user = Socialite::driver($provider)->user();
+            dd($user);
         } catch (\Exception $e) {
             return Redirect::to('auth/'.$provider);
         }

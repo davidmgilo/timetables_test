@@ -29,3 +29,6 @@ Route::get('auth/{github}/callback', 'Auth\MySocialAuthController@handleProvider
 
 Route::get('auth/{facebook}', 'Auth\MySocialAuthController@redirectToProvider');
 Route::get('auth/{facebook}/callback', 'Auth\MySocialAuthController@handleProviderCallback');
+
+Route::get('auth/{google}', 'Auth\MySocialAuthController@redirectToProvider');
+Route::get('auth/{google}/callback', 'Auth\MySocialAuthController@handleProviderCallback');
