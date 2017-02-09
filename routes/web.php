@@ -32,3 +32,6 @@ Route::get('auth/{facebook}/callback', 'Auth\MySocialAuthController@handleProvid
 
 Route::get('auth/{google}', 'Auth\MySocialAuthController@redirectToProvider');
 Route::get('auth/{google}/callback', 'Auth\MySocialAuthController@handleProviderCallback');
+
+Route::get('auth/{twitter}', 'Auth\MySocialAuthController@redirectToProvider');
+Route::get('auth/{twitter}/callback', 'Auth\MySocialAuthController@handleProviderCallback');
