@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Auth\LoginServices\FacebookAuth;
 use App\Http\Controllers\Auth\LoginServices\GithubAuth;
 use App\Http\Controllers\Auth\LoginServices\GoogleAuth;
+use App\Http\Controllers\Auth\LoginServices\TwitterAuth;
 use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Request;
@@ -21,6 +22,7 @@ class MySocialAuthController extends Controller
       'github' => GithubAuth::class,
       'facebook' => FacebookAuth::class,
       'google' => GoogleAuth::class,
+      'twitter' => TwitterAuth::class,
     ];
 
     /**
