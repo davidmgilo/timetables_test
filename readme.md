@@ -1,3 +1,36 @@
+# Timetables Test
+
+[![Latest Stable Version]()]()
+[![Software License][ico-license]](LICENSE.md)
+[![Build Status](https://travis-ci.org/davidmgilo/timetables_test.svg?branch=master)](https://travis-ci.org/davidmgilo/timetables_test)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/davidmgilo/timetables_test/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/davidmgilo/timetables_test/?branch=master)
+[![StyleCI](https://styleci.io/repos/73414508/shield?branch=master)](https://styleci.io/repos/73414508)
+[![Total Downloads]()]()
+
+
+App for testing the package [timetables](https://github.com/davidmgilo/timetables). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img width="150"src="https://laravel.com/laravel.png"></a></p>
 
 <p align="center">
