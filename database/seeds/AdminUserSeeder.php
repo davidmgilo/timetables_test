@@ -15,11 +15,12 @@ class AdminUserSeeder extends Seeder
     public function run()
     {
         try {
-            factory(App\User::class)->create([
+            $user = factory(App\User::class)->create([
                     "name" => "David Martinez",
                     "email" => "davidmgilo@gmail.com",
                     "password" => bcrypt(env('ADMIN_PWD', '123456'))]
             );
+            $user->assignRole('manage attendances');
         } catch (\Illuminate\Database\QueryException $exception) {
 
         }

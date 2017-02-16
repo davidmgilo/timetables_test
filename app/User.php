@@ -5,15 +5,17 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Scool\Foundation\User as FoundationUser;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Class User
  * @package App
  */
-class User extends Authenticatable
+class User extends FoundationUser
 {
     // Has to be the same as in foundation TODO
-    use  HasApiTokens, Notifiable;
+    use  HasApiTokens, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
