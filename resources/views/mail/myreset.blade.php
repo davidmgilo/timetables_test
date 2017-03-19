@@ -9,4 +9,5 @@ Reset Password
 
 Thanks,<br>
 {{ config('app.name') }}
+<a href="{{ url('password/reset/'.$token) }}">{{ url('password/reset/'.$token) }}</a>
 @endcomponent
