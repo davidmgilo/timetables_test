@@ -13,6 +13,8 @@ class CustomResetPasswordNotification extends Notification
 
     public $token;
 
+    public $url;
+
     /**
      * Create a new notification instance.
      *
@@ -21,6 +23,7 @@ class CustomResetPasswordNotification extends Notification
     public function __construct($token)
     {
         $this->token = $token;
+        $this->url = url('password/reset/' . $this->token);
     }
 
     /**
@@ -42,7 +45,7 @@ class CustomResetPasswordNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->markdown('mail.myreset');
+        return (new MailMessage)->markdown('mail.myreset',['url' => $this->url]);
     }
 
     /**

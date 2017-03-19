@@ -3,11 +3,11 @@
 
 The body of your message.
 
-@component('mail::button', ['url' => '{{ url("password/reset/".$token) }}'])
+@component('mail::button', ['url' => $url])
 Reset Password
 @endcomponent
 
 Thanks,<br>
 {{ config('app.name') }}
-<a href="{{ url('password/reset/'.$token) }}">{{ url('password/reset/'.$token) }}</a>
+<a href="{{ $url }}">{{ $url }}</a>
 @endcomponent
