@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Notifications\CustomResetPasswordNotification;
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
@@ -43,7 +44,8 @@ class User extends FoundationUser
      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new CustomResetPasswordNotification($token));
+        $when = Carbon::now()->addMinutes(1);
+        $this->notify((new CustomResetPasswordNotification($token))->delay($when));
     }
 
 
