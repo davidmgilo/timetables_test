@@ -44,8 +44,8 @@ class User extends FoundationUser
      */
     public function sendPasswordResetNotification($token)
     {
-        $when = Carbon::now()->addMinutes(1);
-        $this->notify((new CustomResetPasswordNotification($token))->delay($when));
+//        $when = Carbon::now()->addMinutes(1);
+        $this->notify(new CustomResetPasswordNotification($token));
     }
 
 
