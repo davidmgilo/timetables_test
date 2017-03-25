@@ -45,7 +45,8 @@ class CustomResetPasswordNotification extends Notification implements ShouldQueu
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->markdown('mail.myreset',['url' => $this->url]);
+        return (new MailMessage)->markdown('mail.myreset',['url' => $this->url])
+            ->subject('Timetables Reset Password');
     }
 
     /**
