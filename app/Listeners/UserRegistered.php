@@ -26,6 +26,7 @@ class UserRegistered implements ShouldQueue
      */
     public function handle(Registered $event)
     {
-        //
+        $user = $event->user;
+        $user->assignRole('manage attendances');
     }
 }
