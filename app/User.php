@@ -48,5 +48,9 @@ class User extends FoundationUser
         $this->notify(new CustomResetPasswordNotification($token));
     }
 
+    public function lessons()
+    {
+        return $this->belongsToMany(\Scool\Timetables\Models\Lesson::class);
+    }
 
 }

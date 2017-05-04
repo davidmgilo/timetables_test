@@ -35,6 +35,7 @@ Menu::macro('sidebar', function () {
             ->addParentClass('treeview')
             ->add(Link::to('/link1', 'Link1'))->addClass('treeview-menu')
             ->add(Link::to('/link2', 'Link2'))
+//            ->linkIfCan('view-posts', '/posts', 'Posts');
             ->url('http://www.google.com', 'Google')
             ->add(Menu::new()->prepend('<a href="#"><span>Multilevel 2</span> <i class="fa fa-angle-left pull-right"></i></a>')
                 ->addParentClass('treeview')
