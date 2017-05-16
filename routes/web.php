@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 Route::get('pdf/user/{id}', 'PdfController@user');
 Route::get('pdf/users', 'PdfController@users');
+Route::get('pdf/users/view', 'PdfController@users_view');
 
 Route::get('auth/{github}', 'Auth\MySocialAuthController@redirectToProvider');
 Route::get('auth/{github}/callback', 'Auth\MySocialAuthController@handleProviderCallback');
