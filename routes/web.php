@@ -21,10 +21,11 @@ Route::group(['middleware' => 'auth'], function(){
     });
     #adminlte_routes
 
-    Route::get('user/pdf/{id}', 'PdfController@user');
-    Route::get('users/pdf', 'PdfController@users');
 //    Route::resource('attendances', 'AttendancesController');
 });
+
+Route::get('user/pdf/{id}', 'PdfController@user');
+Route::get('users/pdf', 'PdfController@users');
 
 Route::get('auth/{github}', 'Auth\MySocialAuthController@redirectToProvider');
 Route::get('auth/{github}/callback', 'Auth\MySocialAuthController@handleProviderCallback');
