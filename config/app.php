@@ -172,6 +172,7 @@ return [
         Spatie\Menu\Laravel\MenuServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         //
 
         /*
@@ -255,6 +256,7 @@ return [
         'Menu' => Spatie\Menu\Laravel\MenuFacade::class,
         'Link' => Spatie\Menu\Laravel\Link::class,
         'Html' => Spatie\Menu\Laravel\Html::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
         #llum_aliases
 
     ],

@@ -23,4 +23,9 @@ class PdfController extends Controller
 
         return $pdf->stream('user');
     }
+
+    public function user_view()
+    {
+        return 'TODO';
+    }
 }
