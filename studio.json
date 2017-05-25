@@ -2,7 +2,6 @@
     "version": 2,
     "paths": [
         "../timetables",
-        "../stateful-eloquent",
         "../l5-repository"
     ]
 }

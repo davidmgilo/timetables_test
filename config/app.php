@@ -194,6 +194,8 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
         #llum_providers
 
     ],
@@ -257,6 +259,7 @@ return [
         'Link' => Spatie\Menu\Laravel\Link::class,
         'Html' => Spatie\Menu\Laravel\Html::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         #llum_aliases
 
     ],
