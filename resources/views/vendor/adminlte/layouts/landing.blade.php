@@ -53,6 +53,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     <li><a href="#desc" class="smoothScroll">{{ trans('adminlte_lang::message.description') }}</a></li>
                     <li><a href="#showcase" class="smoothScroll">{{ trans('adminlte_lang::message.showcase') }}</a></li>
                     <li><a href="#contact" class="smoothScroll">{{ trans('adminlte_lang::message.contact') }}</a></li>
+                    <li><a href="https://davidmgilo.github.io/LandingPage/" class="smoothScroll">Official Web Page</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guest())
