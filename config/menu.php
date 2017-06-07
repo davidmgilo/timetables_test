@@ -28,6 +28,7 @@ Menu::macro('sidebar', function () {
         ->link('http://www.acacha.org', 'Another link')
 //        ->url('http://www.google.com', 'Google')
         ->add(Link::toUrl('attendances', 'Attendances'))
+        ->add(Link::toUrl('lessons', 'Lessons'))
         ->add(Menu::adminlteSeparator('Acacha Adminlte'))
         #adminlte_menu
         ->add(Menu::adminlteSeparator('SECONDARY MENU'))
