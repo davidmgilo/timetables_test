@@ -1,7 +1,10 @@
 <template>
     <tr>
         <td> {{index }}</td>
-        <td> {{lesson }}</td>
+        <td> {{lesson.classroom_id }}</td>
+        <td> {{lesson.day_id }}</td>
+        <td> {{lesson.location_id }}</td>
+        <td> {{lesson.timeslot_id }}</td>
         <td> act</td>
     </tr>
 </template>

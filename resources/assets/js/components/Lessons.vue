@@ -4,7 +4,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Attendances</h3>
+                        <h3 class="box-title">Lessons</h3>
 
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -18,7 +18,10 @@
                             <thead>
                             <tr>
                                 <th style="width: 10px">#</th>
-                                <th>Notes</th>
+                                <th>Classroom</th>
+                                <th>Day</th>
+                                <th>Location</th>
+                                <th>Timeslot</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -48,12 +51,13 @@
         },
         created() {
             console.log('Component created');
-            this.fetchData();
+            this.fetchData(1);
         },
         methods: {
-            fetchData: function (){
-                axios.get('/api/v1/lessons').then((response) => {
-                    console.log(response)
+            fetchData: function (page){
+                axios.get('api/v1/lessons?page=' + page).then((response) => {
+                    console.log(response.data)
+                    this.lessons = response.data.data.data
                 }, (error) => {
                     console.log(error);
                 });

@@ -12822,6 +12822,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['lesson', 'index'],
@@ -12877,6 +12880,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -12888,13 +12894,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     created: function created() {
         console.log('Component created');
-        this.fetchData();
+        this.fetchData(1);
     },
 
     methods: {
-        fetchData: function fetchData() {
-            axios.get('/api/v1/lessons').then(function (response) {
-                console.log(response);
+        fetchData: function fetchData(page) {
+            var _this = this;
+
+            axios.get('api/v1/lessons?page=' + page).then(function (response) {
+                console.log(response.data.data.data);
+                _this.lessons = response.data.data.data;
             }, function (error) {
                 console.log(error);
             });
@@ -35645,7 +35654,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('tr', [_c('td', [_vm._v(" " + _vm._s(_vm.index))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson))]), _vm._v(" "), _c('td', [_vm._v(" act")])])
+  return _c('tr', [_c('td', [_vm._v(" " + _vm._s(_vm.index))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.classroom_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.day_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.location_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.timeslot_id))]), _vm._v(" "), _c('td', [_vm._v(" act")])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -36338,7 +36347,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "box-header with-border"
   }, [_c('h3', {
     staticClass: "box-title"
-  }, [_vm._v("Attendances")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Lessons")]), _vm._v(" "), _c('div', {
     staticClass: "box-tools pull-right"
   }, [_c('button', {
     staticClass: "btn btn-box-tool",
@@ -36362,7 +36371,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "width": "10px"
     }
-  }, [_vm._v("#")]), _vm._v(" "), _c('th', [_vm._v("Notes")]), _vm._v(" "), _c('th', [_vm._v("Actions")])])])
+  }, [_vm._v("#")]), _vm._v(" "), _c('th', [_vm._v("Classroom")]), _vm._v(" "), _c('th', [_vm._v("Day")]), _vm._v(" "), _c('th', [_vm._v("Location")]), _vm._v(" "), _c('th', [_vm._v("Timeslot")]), _vm._v(" "), _c('th', [_vm._v("Actions")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
