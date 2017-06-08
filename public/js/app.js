@@ -12825,6 +12825,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['lesson', 'index'],
@@ -12841,6 +12842,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Lesson_vue__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Lesson_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Lesson_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_acacha_forms__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_acacha_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_acacha_forms__);
 //
 //
 //
@@ -12883,13 +12886,74 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: { Lesson: __WEBPACK_IMPORTED_MODULE_0__Lesson_vue___default.a },
     data: function data() {
         return {
-            lessons: []
+            lessons: [],
+            createForm: new __WEBPACK_IMPORTED_MODULE_1_acacha_forms___default.a({
+                classroom_id: '',
+                day_id: '',
+                location_id: '',
+                timeslot_id: '',
+                user_id: ''
+            })
         };
     },
     created: function created() {
@@ -12902,10 +12966,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.get('api/v1/lessons?page=' + page).then(function (response) {
-                console.log(response.data.data.data);
+                console.log(response.data);
                 _this.lessons = response.data.data.data;
             }, function (error) {
                 console.log(error);
+            });
+        },
+        createLesson: function createLesson() {
+            this.createForm.post('/lessons').then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error.response.data);
             });
         }
     }
@@ -35654,7 +35725,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('tr', [_c('td', [_vm._v(" " + _vm._s(_vm.index))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.classroom_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.day_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.location_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.timeslot_id))]), _vm._v(" "), _c('td', [_vm._v(" act")])])
+  return _c('tr', [_c('td', [_vm._v(" " + _vm._s(_vm.index))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.classroom_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.day_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.location_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.timeslot_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.users[0].id))]), _vm._v(" "), _c('td', [_vm._v(" act")])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -36328,12 +36399,171 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "col-md-8 col-md-offset-2"
   }, [_c('div', {
-    staticClass: "box box-default"
+    staticClass: "box box-default",
+    attrs: {
+      "id": "createBox"
+    }
   }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "box-body"
+  }, [_c('form', {
+    attrs: {
+      "method": "post"
+    },
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.createLesson($event)
+      },
+      "keydown": function($event) {
+        _vm.createForm.errors.clear($event.target.name)
+      }
+    }
+  }, [_c('div', {
+    staticClass: "form-group has-feedback"
+  }, [_c('label', [_vm._v(" Classroom ID:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.createForm.classroom_id),
+      expression: "createForm.classroom_id"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "",
+      "name": "classroom_id",
+      "value": "",
+      "autofocus": ""
+    },
+    domProps: {
+      "value": (_vm.createForm.classroom_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.createForm.classroom_id = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback"
+  }, [_c('label', [_vm._v(" Day ID:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.createForm.day_id),
+      expression: "createForm.day_id"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "",
+      "name": "day_id",
+      "value": ""
+    },
+    domProps: {
+      "value": (_vm.createForm.day_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.createForm.day_id = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback"
+  }, [_c('label', [_vm._v(" Location ID:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.createForm.location_id),
+      expression: "createForm.location_id"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "",
+      "name": "location_id"
+    },
+    domProps: {
+      "value": (_vm.createForm.location_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.createForm.location_id = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback"
+  }, [_c('label', [_vm._v(" Timeslot ID:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.createForm.timeslot_id),
+      expression: "createForm.timeslot_id"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "",
+      "name": "timeslot_id"
+    },
+    domProps: {
+      "value": (_vm.createForm.timeslot_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.createForm.timeslot_id = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback"
+  }, [_c('label', [_vm._v(" User ID:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.createForm.user_id),
+      expression: "createForm.user_id"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "",
+      "name": "user_id"
+    },
+    domProps: {
+      "value": (_vm.createForm.user_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.createForm.user_id = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-xs-1"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-xs-6"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-xs-4 col-xs-push-1"
+  }, [_c('button', {
+    staticClass: "btn btn-primary btn-block btn-flat",
+    attrs: {
+      "type": "submit",
+      "disabled": _vm.createForm.errors.any()
+    }
+  }, [(_vm.createForm.submitting) ? _c('i', {
+    staticClass: "fa fa-refresh fa-spin"
+  }) : _vm._e(), _vm._v("Register")])])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "box box-default"
+  }, [_vm._m(1), _vm._v(" "), _c('div', {
     staticClass: "box-body"
   }, [_c('table', {
     staticClass: "table table-bordered"
-  }, [_vm._m(1), _vm._v(" "), _c('tbody', _vm._l((_vm.lessons), function(lesson, index) {
+  }, [_vm._m(2), _vm._v(" "), _c('tbody', _vm._l((_vm.lessons), function(lesson, index) {
     return _c('lesson', {
       key: lesson.id,
       attrs: {
@@ -36343,6 +36573,30 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })
   }))])])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "box-header with-border"
+  }, [_c('h3', {
+    staticClass: "box-title"
+  }, [_vm._v("Create Lesson")]), _vm._v(" "), _c('div', {
+    staticClass: "box-tools pull-right"
+  }, [_c('button', {
+    staticClass: "btn btn-box-tool",
+    attrs: {
+      "type": "button",
+      "data-widget": "collapse"
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-minus"
+  })]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-box-tool",
+    attrs: {
+      "type": "button",
+      "data-widget": "remove"
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-times"
+  })])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "box-header with-border"
   }, [_c('h3', {
@@ -36371,7 +36625,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "width": "10px"
     }
-  }, [_vm._v("#")]), _vm._v(" "), _c('th', [_vm._v("Classroom")]), _vm._v(" "), _c('th', [_vm._v("Day")]), _vm._v(" "), _c('th', [_vm._v("Location")]), _vm._v(" "), _c('th', [_vm._v("Timeslot")]), _vm._v(" "), _c('th', [_vm._v("Actions")])])])
+  }, [_vm._v("#")]), _vm._v(" "), _c('th', [_vm._v("Classroom")]), _vm._v(" "), _c('th', [_vm._v("Day")]), _vm._v(" "), _c('th', [_vm._v("Location")]), _vm._v(" "), _c('th', [_vm._v("Timeslot")]), _vm._v(" "), _c('th', [_vm._v("User")]), _vm._v(" "), _c('th', [_vm._v("Actions")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
