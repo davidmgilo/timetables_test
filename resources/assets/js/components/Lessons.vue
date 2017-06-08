@@ -3,6 +3,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
+                <messages></messages>
+
                 <div class="box box-default" id="createBox">
                     <div class="box-header with-border">
                         <h3 class="box-title">Create Lesson</h3>
@@ -95,9 +97,11 @@
 
 <script>
     import Lesson from './Lesson.vue'
+    import Messages from './Messages.vue'
     import Form from 'acacha-forms'
+    import store from './../store'
     export default {
-        components : { Lesson },
+        components : { Lesson, Messages },
         data() {
             return {
                 lessons: [],
@@ -129,9 +133,11 @@
                 this.createForm.post('/lessons')
                         .then(response => {
                             console.log(response)
+                            this.$myStore.createdOk = true
                         })
                         .catch(error => {
                             console.log(error.response.data)
+                            this.$myStore.errorCreating = true
                         })
             }
         }
