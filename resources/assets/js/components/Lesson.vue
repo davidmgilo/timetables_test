@@ -1,6 +1,6 @@
 <template>
     <tr>
-        <td> {{index }}</td>
+        <td> {{index + from }}</td>
         <td> {{lesson.classroom_id }}</td>
         <td> {{lesson.day_id }}</td>
         <td> {{lesson.location_id }}</td>
@@ -15,7 +15,7 @@
 
 <script>
     export default {
-        props: ['lesson','index'],
+        props: ['lesson','index','from'],
         mounted() {
             console.log('Component ready.')
         },

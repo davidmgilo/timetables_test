@@ -90,6 +90,7 @@
                                         :key="lesson.id"
                                     :lesson="lesson"
                                 :index="index"
+                                :from="from"
                                 @lesson-deleted="deleteLesson"></lesson>
                             </tbody>
                         </table>
