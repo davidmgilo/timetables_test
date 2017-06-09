@@ -89,7 +89,8 @@
                                 <lesson v-for="(lesson,index) in lessons"
                                         :key="lesson.id"
                                     :lesson="lesson"
-                                :index="index"></lesson>
+                                :index="index"
+                                @lesson-deleted="deleteLesson"></lesson>
                             </tbody>
                         </table>
                     </div>
@@ -146,6 +147,27 @@
                             EventBus.$emit('errored', that.createForm.errors)
                         })
                 window.scrollTo(0,this.$refs.messages.scrollTop);
+            },
+            deleteLesson: function(index, id) {
+                var funct = this;
+                swal({
+                        title: "Are you sure?",
+                        text: "You will not be able to recover this lesson!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it!",
+                        cancelButtonText: "No, cancel plx!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    },
+                    function(isConfirm){
+                        if (isConfirm) {
+                            swal("Deleted!", "Your lesson has been deleted.", "success");
+                        } else {
+                            swal("Cancelled", "Your lesson is safe :)", "error");
+                        }
+                    });
             }
         }
     }
