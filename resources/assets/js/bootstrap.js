@@ -68,6 +68,3 @@ Vue.component('reset-password-form', require('./components/auth/ResetPasswordFor
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
-
-import storePlugin from './storePlugin'
-Vue.use(storePlugin)

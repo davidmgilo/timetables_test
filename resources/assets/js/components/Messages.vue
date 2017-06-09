@@ -1,5 +1,16 @@
 <template>
     <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Alerts</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+            </div>
+            <!-- /.box-tools -->
+        </div>
         <div class="box-body">
             <div class="alert alert-success alert-dismissible" v-if="createdOk">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -16,14 +27,24 @@
 </template>
 
 <script>
+    import EventBus from './../eventBus'
     export default {
-        computed: {
-            createdOk: function () {
-                return this.$myStore.createdOk
-            },
-            errored: function () {
-                return this.$myStore.errorCreating
+        data() {
+            return {
+                createdOk: false,
+                errored: false
             }
+        },
+        mounted() {
+            EventBus.$on('created', event => {
+                this.createdOk = true
+                this.errored = false
+            })
+            EventBus.$on('errored', event => {
+                console.log(event)
+                this.createdOk = false
+                this.errored = true
+            })
         }
     }
 </script>

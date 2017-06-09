@@ -99,7 +99,7 @@
     import Lesson from './Lesson.vue'
     import Messages from './Messages.vue'
     import Form from 'acacha-forms'
-    import store from './../store'
+    import EventBus from './../eventBus'
     export default {
         components : { Lesson, Messages },
         data() {
@@ -130,14 +130,15 @@
                 });
             },
             createLesson : function(){
+                var that = this
                 this.createForm.post('/lessons')
                         .then(response => {
                             console.log(response)
-                            this.$myStore.createdOk = true
+                            EventBus.$emit('created')
                         })
                         .catch(error => {
                             console.log(error.response.data)
-                            this.$myStore.errorCreating = true
+                            EventBus.$emit('errored', that.createForm)
                         })
             }
         }
