@@ -185,6 +185,8 @@
                     function(isConfirm){
                         if (isConfirm) {
                             swal("Deleted!", "Your lesson has been deleted.", "success");
+
+//TODO https://stackoverflow.com/questions/27330551/laravel-eloquent-orm-many-to-many-delete-pivot-table-values-left-over
                         } else {
                             swal("Cancelled", "Your lesson is safe :)", "error");
                         }
