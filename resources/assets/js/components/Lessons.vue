@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
-                <messages></messages>
+                <messages id="messages" ref="messages"></messages>
 
                 <div class="box box-default" id="createBox">
                     <div class="box-header with-border">
@@ -21,25 +21,30 @@
                     <div class="box-body">
 
                         <form method="post" @submit.prevent="createLesson" @keydown="createForm.errors.clear($event.target.name)">
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback" :class="{ 'has-error': createForm.errors.has('classroom_id') }">
                                 <label> Classroom ID:</label>
                                 <input type="text" class="form-control" placeholder="" name="classroom_id" value="" v-model="createForm.classroom_id" autofocus/>
+                                <span class="help-block" v-if="createForm.errors.has('classroom_id')" v-text="createForm.errors.get('classroom_id')"></span>
                             </div>
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback" :class="{ 'has-error': createForm.errors.has('day_id') }">
                                 <label> Day ID:</label>
                                 <input type="text" class="form-control" placeholder="" name="day_id" value="" v-model="createForm.day_id"/>
+                                <span class="help-block" v-if="createForm.errors.has('day_id')" v-text="createForm.errors.get('day_id')"></span>
                             </div>
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback" :class="{ 'has-error': createForm.errors.has('location_id') }">
                                 <label> Location ID:</label>
                                 <input type="text" class="form-control" placeholder="" name="location_id" v-model="createForm.location_id"/>
+                                <span class="help-block" v-if="createForm.errors.has('location_id')" v-text="createForm.errors.get('location_id')"></span>
                             </div>
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback" :class="{ 'has-error': createForm.errors.has('timeslot_id') }">
                                 <label> Timeslot ID:</label>
                                 <input type="text" class="form-control" placeholder="" name="timeslot_id" v-model="createForm.timeslot_id"/>
+                                <span class="help-block" v-if="createForm.errors.has('timeslot_id')" v-text="createForm.errors.get('timeslot_id')"></span>
                             </div>
-                            <div class="form-group has-feedback">
+                            <div class="form-group has-feedback" :class="{ 'has-error': createForm.errors.has('user_id') }">
                                 <label> User ID:</label>
                                 <input type="text" class="form-control" placeholder="" name="user_id" v-model="createForm.user_id"/>
+                                <span class="help-block" v-if="createForm.errors.has('user_id')" v-text="createForm.errors.get('user_id')"></span>
                             </div>
                             <div class="row">
                                 <div class="col-xs-1">
@@ -140,6 +145,7 @@
                             console.log(error.response.data)
                             EventBus.$emit('errored', that.createForm.errors)
                         })
+                window.scrollTo(0,this.$refs.messages.scrollTop);
             }
         }
     }

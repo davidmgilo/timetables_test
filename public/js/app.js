@@ -22655,6 +22655,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -22699,6 +22704,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error.response.data);
                 __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* default */].$emit('errored', that.createForm.errors);
             });
+            console.log(this.$refs.messages);
+            window.scrollTo(0, this.$refs.messages.scrollTop);
         }
     }
 });
@@ -46288,7 +46295,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-md-8 col-md-offset-2"
-  }, [_c('messages'), _vm._v(" "), _c('div', {
+  }, [_c('messages', {
+    ref: "messages",
+    attrs: {
+      "id": "messages"
+    }
+  }), _vm._v(" "), _c('div', {
     staticClass: "box box-default",
     attrs: {
       "id": "createBox"
@@ -46309,7 +46321,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_c('div', {
-    staticClass: "form-group has-feedback"
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.createForm.errors.has('classroom_id')
+    }
   }, [_c('label', [_vm._v(" Classroom ID:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
@@ -46334,8 +46349,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.createForm.classroom_id = $event.target.value
       }
     }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "form-group has-feedback"
+  }), _vm._v(" "), (_vm.createForm.errors.has('classroom_id')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.createForm.errors.get('classroom_id'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.createForm.errors.has('day_id')
+    }
   }, [_c('label', [_vm._v(" Day ID:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
@@ -46359,8 +46382,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.createForm.day_id = $event.target.value
       }
     }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "form-group has-feedback"
+  }), _vm._v(" "), (_vm.createForm.errors.has('day_id')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.createForm.errors.get('day_id'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.createForm.errors.has('location_id')
+    }
   }, [_c('label', [_vm._v(" Location ID:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
@@ -46383,8 +46414,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.createForm.location_id = $event.target.value
       }
     }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "form-group has-feedback"
+  }), _vm._v(" "), (_vm.createForm.errors.has('location_id')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.createForm.errors.get('location_id'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.createForm.errors.has('timeslot_id')
+    }
   }, [_c('label', [_vm._v(" Timeslot ID:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
@@ -46407,8 +46446,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.createForm.timeslot_id = $event.target.value
       }
     }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "form-group has-feedback"
+  }), _vm._v(" "), (_vm.createForm.errors.has('timeslot_id')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.createForm.errors.get('timeslot_id'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.createForm.errors.has('user_id')
+    }
   }, [_c('label', [_vm._v(" User ID:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
@@ -46431,7 +46478,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.createForm.user_id = $event.target.value
       }
     }
-  })]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), (_vm.createForm.errors.has('user_id')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.createForm.errors.get('user_id'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-xs-1"
