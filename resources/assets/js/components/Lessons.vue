@@ -95,6 +95,16 @@
                         </table>
                     </div>
 
+                    <div class="box-footer clearfix">
+                        <span class="pull-left">Showing {{ from }} to {{ to }} of {{ total }} entries.</span>
+                        <pagination
+                                :current-page="page"
+                                :items-per-page="perPage"
+                                :total-items="total"
+                                @page-changed="pageChanged"
+                        ></pagination>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -119,7 +129,12 @@
                             timeslot_id : '',
                             user_id: ''
                         }
-                )
+                ),
+                from: 0,
+                to: 0,
+                total: 0,
+                page: 1,
+                perPage: 2
             }
         },
         created() {
@@ -131,6 +146,10 @@
                 axios.get('api/v1/lessons?page=' + page).then((response) => {
                     console.log(response.data)
                     this.lessons = response.data.data.data
+                    this.to = response.data.data.to;
+                    this.from = response.data.data.from;
+                    this.total = response.data.data.total;
+                    this.perPage = response.data.data.per_page;
                 }, (error) => {
                     console.log(error);
                 });
@@ -168,6 +187,10 @@
                             swal("Cancelled", "Your lesson is safe :)", "error");
                         }
                     });
+            },
+            pageChanged : function (pageNum) {
+                this.page = pageNum;
+                this.fetchData(pageNum);
             }
         }
     }
