@@ -114,10 +114,11 @@
 <script>
     import Lesson from './Lesson.vue'
     import Messages from './Messages.vue'
+    import Pagination from './Pagination.vue'
     import Form from 'acacha-forms'
     import EventBus from './../eventBus'
     export default {
-        components : { Lesson, Messages },
+        components : { Lesson, Messages, Pagination },
         data() {
             return {
                 lessons: [],
