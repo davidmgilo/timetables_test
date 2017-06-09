@@ -22697,7 +22697,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* default */].$emit('created');
             }).catch(function (error) {
                 console.log(error.response.data);
-                __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* default */].$emit('errored', that.createForm);
+                __WEBPACK_IMPORTED_MODULE_3__eventBus__["a" /* default */].$emit('errored', that.createForm.errors);
             });
         }
     }
@@ -22738,13 +22738,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             createdOk: false,
-            errored: false
+            errored: false,
+            errors: []
         };
     },
     mounted: function mounted() {
@@ -22756,6 +22761,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
         __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on('errored', function (event) {
             console.log(event);
+            _this.errors = event.errors;
             _this.createdOk = false;
             _this.errored = true;
         });
@@ -24041,7 +24047,7 @@ Vue.prototype.trans = function (key) {
 Vue.component('register-form', __webpack_require__(73));
 Vue.component('login-form', __webpack_require__(72));
 Vue.component('email-reset-password-form', __webpack_require__(71));
-Vue.component('reset-password-form', __webpack_require__(74)
+Vue.component('reset-password-form', __webpack_require__(74));
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -24055,7 +24061,6 @@ Vue.component('reset-password-form', __webpack_require__(74)
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
-);
 
 /***/ }),
 /* 55 */
@@ -44680,7 +44685,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/Example.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44714,7 +44719,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/Lesson.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/Lesson.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Lesson.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44748,7 +44753,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/Lessons.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/Lessons.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Lessons.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44782,7 +44787,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/Messages.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/Messages.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Messages.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44820,7 +44825,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/auth/EmailResetPasswordForm.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/auth/EmailResetPasswordForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] EmailResetPasswordForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44858,7 +44863,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/auth/LoginForm.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/auth/LoginForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] LoginForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44896,7 +44901,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/auth/RegisterForm.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/auth/RegisterForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] RegisterForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44934,7 +44939,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/auth/ResetPasswordForm.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/auth/ResetPasswordForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] ResetPasswordForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -44972,7 +44977,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/passport/AuthorizedClients.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/passport/AuthorizedClients.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] AuthorizedClients.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -45010,7 +45015,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/passport/Clients.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/passport/Clients.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Clients.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -45048,7 +45053,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/passport/PersonalAccessTokens.vue"
+Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/passport/PersonalAccessTokens.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] PersonalAccessTokens.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -45124,7 +45129,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "data-dismiss": "alert",
       "aria-hidden": "true"
     }
-  }, [_vm._v("×")]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('p', [_vm._v("There has been an error!")])]) : _vm._e()])])
+  }, [_vm._v("×")]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('ul', _vm._l((_vm.errors), function(error) {
+    return _c('li', [_vm._v("\n                    " + _vm._s(error[0]) + "\n                ")])
+  }))]) : _vm._e()])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "box-header with-border"
@@ -45156,7 +45163,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('h4', [_c('i', {
     staticClass: "icon fa fa-times"
-  }), _vm._v(" Error creating")])
+  }), _vm._v(" Error")])
 }]}
 module.exports.render._withStripped = true
 if (false) {

@@ -19,8 +19,12 @@
             </div>
             <div class="alert alert-danger alert-dismissible" v-if="errored">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-times"></i> Error creating</h4>
-                <p>There has been an error!</p>
+                <h4><i class="icon fa fa-times"></i> Error</h4>
+                <ul>
+                    <li v-for="error in errors">
+                        {{ error[0]}}
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -32,7 +36,8 @@
         data() {
             return {
                 createdOk: false,
-                errored: false
+                errored: false,
+                errors: []
             }
         },
         mounted() {
@@ -42,6 +47,7 @@
             })
             EventBus.$on('errored', event => {
                 console.log(event)
+                this.errors = event.errors
                 this.createdOk = false
                 this.errored = true
             })

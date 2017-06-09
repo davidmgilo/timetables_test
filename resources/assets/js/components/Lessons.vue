@@ -138,7 +138,7 @@
                         })
                         .catch(error => {
                             console.log(error.response.data)
-                            EventBus.$emit('errored', that.createForm)
+                            EventBus.$emit('errored', that.createForm.errors)
                         })
             }
         }
