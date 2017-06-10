@@ -23240,7 +23240,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 closeOnCancel: false
             }, function (isConfirm) {
                 if (isConfirm) {
-                    swal("Deleted!", "Your lesson has been deleted.", "success");
+                    axios.delete('/api/v1/lessons/' + id).then(function (response) {
+                        console.log(response);
+                        swal("Deleted!", "Your lesson has been deleted.", "success");
+                    }, function (response) {
+                        sweetAlert("Oops...", "Something went wrong!", "error");
+                        console.log(response);
+                    });
+                    funct.fetchData(funct.page
+                    //TODO https://stackoverflow.com/questions/27330551/laravel-eloquent-orm-many-to-many-delete-pivot-table-values-left-over
+                    );
                 } else {
                     swal("Cancelled", "Your lesson is safe :)", "error");
                 }
@@ -24681,7 +24690,7 @@ Vue.prototype.trans = function (key) {
 Vue.component('register-form', __webpack_require__(85));
 Vue.component('login-form', __webpack_require__(84));
 Vue.component('email-reset-password-form', __webpack_require__(83));
-Vue.component('reset-password-form', __webpack_require__(86));
+Vue.component('reset-password-form', __webpack_require__(86)
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -24695,6 +24704,7 @@ Vue.component('reset-password-form', __webpack_require__(86));
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+);
 
 /***/ }),
 /* 60 */
@@ -46140,7 +46150,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/Example.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46174,7 +46184,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/Lesson.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/Lesson.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Lesson.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46208,7 +46218,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/Lessons.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/Lessons.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Lessons.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46242,7 +46252,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/Messages.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/Messages.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Messages.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46280,7 +46290,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/Pagination.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/Pagination.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Pagination.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46318,7 +46328,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/auth/EmailResetPasswordForm.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/auth/EmailResetPasswordForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] EmailResetPasswordForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46356,7 +46366,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/auth/LoginForm.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/auth/LoginForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] LoginForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46394,7 +46404,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/auth/RegisterForm.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/auth/RegisterForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] RegisterForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46432,7 +46442,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/auth/ResetPasswordForm.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/auth/ResetPasswordForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] ResetPasswordForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46470,7 +46480,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/passport/AuthorizedClients.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/passport/AuthorizedClients.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] AuthorizedClients.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46508,7 +46518,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/passport/Clients.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/passport/Clients.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Clients.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -46546,7 +46556,7 @@ var Component = __webpack_require__(1)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/alumne/Code/scool/timetables_test/resources/assets/js/components/passport/PersonalAccessTokens.vue"
+Component.options.__file = "/home/david/Code/scool/timetables_test/resources/assets/js/components/passport/PersonalAccessTokens.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] PersonalAccessTokens.vue: functional components are not supported with templates, they should use render functions.")}
 
