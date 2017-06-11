@@ -161,7 +161,7 @@
                 this.createForm.post('/lessons')
                         .then(response => {
                             console.log(response)
-                            EventBus.$emit('created')
+                            EventBus.$emit('created', response.data.message)
                         })
                         .catch(error => {
                             console.log(error.response.data)

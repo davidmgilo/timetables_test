@@ -15,7 +15,7 @@
             <div class="alert alert-success alert-dismissible" v-if="createdOk">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <h4><i class="icon fa fa-check"></i> Done!</h4>
-                <p>Created successfully!</p>
+                <p>{{message}} successfully!</p>
             </div>
             <div class="alert alert-danger alert-dismissible" v-if="errored">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -37,13 +37,16 @@
             return {
                 createdOk: false,
                 errored: false,
+                message: '',
                 errors: []
             }
         },
         mounted() {
             EventBus.$on('created', event => {
+                console.log(event)
                 this.createdOk = true
                 this.errored = false
+                this.message = event
             })
             EventBus.$on('errored', event => {
                 console.log(event)

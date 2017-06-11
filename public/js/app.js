@@ -23219,7 +23219,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var that = this;
             this.createForm.post('/lessons').then(function (response) {
                 console.log(response);
-                __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* default */].$emit('created');
+                __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* default */].$emit('created', response.data.message);
             }).catch(function (error) {
                 console.log(error.response.data);
                 __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* default */].$emit('errored', that.createForm.errors);
@@ -23308,6 +23308,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             createdOk: false,
             errored: false,
+            message: '',
             errors: []
         };
     },
@@ -23315,8 +23316,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on('created', function (event) {
+            console.log(event);
             _this.createdOk = true;
             _this.errored = false;
+            _this.message = event;
         });
         __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on('errored', function (event) {
             console.log(event);
@@ -46623,7 +46626,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "data-dismiss": "alert",
       "aria-hidden": "true"
     }
-  }, [_vm._v("×")]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('p', [_vm._v("Created successfully!")])]) : _vm._e(), _vm._v(" "), (_vm.errored) ? _c('div', {
+  }, [_vm._v("×")]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.message) + " successfully!")])]) : _vm._e(), _vm._v(" "), (_vm.errored) ? _c('div', {
     staticClass: "alert alert-danger alert-dismissible"
   }, [_c('button', {
     staticClass: "close",
