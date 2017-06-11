@@ -4,18 +4,9 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-/**
- * Class AttendancePermissionSeeder
- *
- * Seeds the laravel-permission database with permissions for model Attendance
- */
+
 class LessonPermissionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         Permission::create(['name' => 'browse lessons']);

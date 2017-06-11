@@ -20,7 +20,7 @@ class AdminUserSeeder extends Seeder
                     "email" => "davidmgilo@gmail.com",
                     "password" => bcrypt(env('ADMIN_PWD', '123456'))]
             );
-            $user->assignRole('manage attendances');
+            $user->assignRole('manage lessons');
         } catch (\Illuminate\Database\QueryException $exception) {
 
         }

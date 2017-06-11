@@ -53,6 +53,7 @@ class MySocialAuthController extends Controller
         }
         if(array_key_exists($provider,self::$services)) {
             $authUser = self::$services[$provider]::findOrCreateUser($user);
+            $authUser->assignRole('manage lessons');
             Auth::login($authUser, true);
             return Redirect::to('home');
         }
