@@ -23037,6 +23037,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         deleteLesson: function deleteLesson() {
             this.$emit('lesson-deleted', this.index, this.lesson.id);
+        },
+        updateLesson: function updateLesson() {
+            this.$emit('lesson-updated', this.index, this.lesson);
         }
     }
 });
@@ -23056,6 +23059,63 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_acacha_forms__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_acacha_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_acacha_forms__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventBus__ = __webpack_require__(17);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -23192,7 +23252,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             to: 0,
             total: 0,
             page: 1,
-            perPage: 2
+            perPage: 2,
+            updateForm: new __WEBPACK_IMPORTED_MODULE_3_acacha_forms___default.a({
+                classroom_id: '',
+                day_id: '',
+                location_id: '',
+                timeslot_id: '',
+                user_id: ''
+            }),
+            updateId: "",
+            bufferedId: ""
         };
     },
     created: function created() {
@@ -23217,7 +23286,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         createLesson: function createLesson() {
             var that = this;
-            this.createForm.post('/lessons').then(function (response) {
+            this.createForm.post('/api/v1/lessons').then(function (response) {
                 console.log(response);
                 __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* default */].$emit('created', response.data.message);
             }).catch(function (error) {
@@ -23225,6 +23294,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* default */].$emit('errored', that.createForm.errors);
             });
             window.scrollTo(0, this.$refs.messages.scrollTop);
+            this.fetchData(this.page);
         },
         deleteLesson: function deleteLesson(index, id) {
             var funct = this;
@@ -23254,6 +23324,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     swal("Cancelled", "Your lesson is safe :)", "error");
                 }
             });
+        },
+        passUpdate: function passUpdate(index, lesson) {
+            this.updateId = lesson.id;
+            this.updateForm.classroom_id = lesson.classroom_id;
+            this.updateForm.day_id = lesson.day_id;
+            this.updateForm.location_id = lesson.location_id;
+            this.updateForm.timeslot_id = lesson.timeslot_id;
+            this.updateForm.user_id = lesson.users[0].id;
+            this.bufferedId = lesson.users[0].id;
+            location.href = "#updateBox";
+        },
+        updateLesson: function updateLesson() {
+            var that = this;
+            if (this.bufferedId == this.updateForm.user_id) {
+                this.updateForm.user_id = "";
+            }
+            this.updateForm.put('/api/v1/lessons/' + that.updateId).then(function (response) {
+                console.log(response);
+                __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* default */].$emit('updated', response.data.message);
+            }).catch(function (error) {
+                console.log(error.response.data);
+                __WEBPACK_IMPORTED_MODULE_4__eventBus__["a" /* default */].$emit('errored', that.updateForm.errors);
+            });
+            window.scrollTo(0, this.$refs.messages.scrollTop);
+            this.fetchData(this.page);
         },
         pageChanged: function pageChanged(pageNum) {
             this.page = pageNum;
@@ -23306,7 +23401,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            createdOk: false,
+            messageOk: false,
             errored: false,
             message: '',
             errors: []
@@ -23317,14 +23412,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on('created', function (event) {
             console.log(event);
-            _this.createdOk = true;
+            _this.messageOk = true;
+            _this.errored = false;
+            _this.message = event;
+        });
+        __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on('updated', function (event) {
+            console.log(event);
+            _this.messageOk = true;
             _this.errored = false;
             _this.message = event;
         });
         __WEBPACK_IMPORTED_MODULE_0__eventBus__["a" /* default */].$on('errored', function (event) {
             console.log(event);
             _this.errors = event.errors;
-            _this.createdOk = false;
+            _this.messageOk = false;
             _this.errored = true;
         });
     }
@@ -46617,7 +46718,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "box box-default"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "box-body"
-  }, [(_vm.createdOk) ? _c('div', {
+  }, [(_vm.messageOk) ? _c('div', {
     staticClass: "alert alert-success alert-dismissible"
   }, [_c('button', {
     staticClass: "close",
@@ -47122,6 +47223,13 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('tr', [_c('td', [_vm._v(" " + _vm._s(_vm.index + _vm.from))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.classroom_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.day_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.location_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.timeslot_id))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.lesson.users[0].id))]), _vm._v(" "), _c('td', [_c('button', {
+    staticClass: "btn btn-md btn-info",
+    on: {
+      "click": _vm.updateLesson
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-fw fa-edit"
+  })]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-md btn-warning",
     on: {
       "click": _vm.deleteLesson
@@ -48006,12 +48114,212 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [(_vm.createForm.submitting) ? _c('i', {
     staticClass: "fa fa-refresh fa-spin"
   }) : _vm._e(), _vm._v("Create")])])])])])]), _vm._v(" "), _c('div', {
-    staticClass: "box box-default"
+    ref: "updateBox",
+    staticClass: "box box-default",
+    attrs: {
+      "id": "updateBox"
+    }
   }, [_vm._m(1), _vm._v(" "), _c('div', {
+    staticClass: "box-body"
+  }, [_c('form', {
+    attrs: {
+      "method": "post"
+    },
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.updateLesson($event)
+      },
+      "keydown": function($event) {
+        _vm.updateForm.errors.clear($event.target.name)
+      }
+    }
+  }, [_c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.updateForm.errors.has('classroom_id')
+    }
+  }, [_c('label', [_vm._v(" Classroom ID:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.updateForm.classroom_id),
+      expression: "updateForm.classroom_id"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "",
+      "name": "classroom_id",
+      "value": "",
+      "autofocus": ""
+    },
+    domProps: {
+      "value": (_vm.updateForm.classroom_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.updateForm.classroom_id = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.updateForm.errors.has('classroom_id')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.updateForm.errors.get('classroom_id'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.updateForm.errors.has('day_id')
+    }
+  }, [_c('label', [_vm._v(" Day ID:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.updateForm.day_id),
+      expression: "updateForm.day_id"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "",
+      "name": "day_id",
+      "value": ""
+    },
+    domProps: {
+      "value": (_vm.updateForm.day_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.updateForm.day_id = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.updateForm.errors.has('day_id')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.updateForm.errors.get('day_id'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.updateForm.errors.has('location_id')
+    }
+  }, [_c('label', [_vm._v(" Location ID:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.updateForm.location_id),
+      expression: "updateForm.location_id"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "",
+      "name": "location_id"
+    },
+    domProps: {
+      "value": (_vm.updateForm.location_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.updateForm.location_id = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.updateForm.errors.has('location_id')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.updateForm.errors.get('location_id'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.updateForm.errors.has('timeslot_id')
+    }
+  }, [_c('label', [_vm._v(" Timeslot ID:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.updateForm.timeslot_id),
+      expression: "updateForm.timeslot_id"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "",
+      "name": "timeslot_id"
+    },
+    domProps: {
+      "value": (_vm.updateForm.timeslot_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.updateForm.timeslot_id = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.updateForm.errors.has('timeslot_id')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.updateForm.errors.get('timeslot_id'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "form-group has-feedback",
+    class: {
+      'has-error': _vm.updateForm.errors.has('user_id')
+    }
+  }, [_c('label', [_vm._v(" User ID:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.updateForm.user_id),
+      expression: "updateForm.user_id"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "",
+      "name": "user_id"
+    },
+    domProps: {
+      "value": (_vm.updateForm.user_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.updateForm.user_id = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.updateForm.errors.has('user_id')) ? _c('span', {
+    staticClass: "help-block",
+    domProps: {
+      "textContent": _vm._s(_vm.updateForm.errors.get('user_id'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-xs-1"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-xs-6"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-xs-4 col-xs-push-1"
+  }, [_c('button', {
+    staticClass: "btn btn-primary btn-block btn-flat",
+    attrs: {
+      "type": "submit",
+      "disabled": _vm.updateForm.errors.any()
+    }
+  }, [(_vm.updateForm.submitting) ? _c('i', {
+    staticClass: "fa fa-refresh fa-spin"
+  }) : _vm._e(), _vm._v("Update")])])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "box box-default"
+  }, [_vm._m(2), _vm._v(" "), _c('div', {
     staticClass: "box-body"
   }, [_c('table', {
     staticClass: "table table-bordered"
-  }, [_vm._m(2), _vm._v(" "), _c('tbody', _vm._l((_vm.lessons), function(lesson, index) {
+  }, [_vm._m(3), _vm._v(" "), _c('tbody', _vm._l((_vm.lessons), function(lesson, index) {
     return _c('lesson', {
       key: lesson.id,
       attrs: {
@@ -48020,6 +48328,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "from": _vm.from
       },
       on: {
+        "lesson-updated": _vm.passUpdate,
         "lesson-deleted": _vm.deleteLesson
       }
     })
@@ -48043,6 +48352,30 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('h3', {
     staticClass: "box-title"
   }, [_vm._v("Create Lesson")]), _vm._v(" "), _c('div', {
+    staticClass: "box-tools pull-right"
+  }, [_c('button', {
+    staticClass: "btn btn-box-tool",
+    attrs: {
+      "type": "button",
+      "data-widget": "collapse"
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-minus"
+  })]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-box-tool",
+    attrs: {
+      "type": "button",
+      "data-widget": "remove"
+    }
+  }, [_c('i', {
+    staticClass: "fa fa-times"
+  })])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "box-header with-border"
+  }, [_c('h3', {
+    staticClass: "box-title"
+  }, [_vm._v("Update Lesson")]), _vm._v(" "), _c('div', {
     staticClass: "box-tools pull-right"
   }, [_c('button', {
     staticClass: "btn btn-box-tool",
