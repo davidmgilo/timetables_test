@@ -260,11 +260,10 @@
                                 sweetAlert("Oops...", "Something went wrong!", "error");
                                 console.log(response);
                             });
-                            funct.fetchData(funct.page)
-//TODO https://stackoverflow.com/questions/27330551/laravel-eloquent-orm-many-to-many-delete-pivot-table-values-left-over
                         } else {
                             swal("Cancelled", "Your lesson is safe :)", "error");
                         }
+                        funct.fetchData(funct.page)
                     });
             },
             passUpdate: function(index, lesson) {
