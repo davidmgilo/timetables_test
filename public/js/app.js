@@ -23298,6 +23298,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         deleteLesson: function deleteLesson(index, id) {
             var funct = this;
+            funct.deleteId = id;
             swal({
                 title: "Are you sure?",
                 text: "You will not be able to recover this lesson!",
@@ -23310,7 +23311,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 closeOnCancel: false
             }, function (isConfirm) {
                 if (isConfirm) {
-                    axios.delete('/api/v1/lessons/' + id).then(function (response) {
+                    axios.delete('/api/v1/lessons/' + funct.deleteId).then(function (response) {
                         console.log(response);
                         swal("Deleted!", "Your lesson has been deleted.", "success");
                     }, function (response) {

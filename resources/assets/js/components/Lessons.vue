@@ -240,6 +240,7 @@
             },
             deleteLesson: function(index, id) {
                 var funct = this;
+                funct.deleteId = id
                 swal({
                         title: "Are you sure?",
                         text: "You will not be able to recover this lesson!",
@@ -253,7 +254,7 @@
                     },
                     function(isConfirm){
                         if (isConfirm) {
-                            axios.delete('/api/v1/lessons/' + id).then((response) => {
+                            axios.delete('/api/v1/lessons/' + funct.deleteId).then((response) => {
                                 console.log(response)
                                 swal("Deleted!", "Your lesson has been deleted.", "success");
                             }, (response) => {
