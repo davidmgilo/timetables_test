@@ -5,8 +5,13 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 
-class LessonPermissionSeeder extends Seeder
+class PermissionLessonSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
         Permission::create(['name' => 'browse lessons']);
