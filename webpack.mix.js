@@ -23,6 +23,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
        'public/css/adminlte-app.css',
        'node_modules/icheck/skins/square/blue.css',
        'node_modules/sweetalert/dist/sweetalert.css',
+       'node_modules/fullcalendar/dist/fullcalendar.css',
+       'node_modules/fullcalendar/dist/fullcalendar.print.css',
        'public/css/toastr.css'
    ], 'public/css/all.css')
    .combine([

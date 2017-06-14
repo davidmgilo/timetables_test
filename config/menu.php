@@ -29,6 +29,7 @@ Menu::macro('sidebar', function () {
 //        ->add(Link::toUrl('lessons', 'Lessons'))
         ->linkIfCan('browse lessons', '/lessons', 'Lessons')
         #adminlte_menu
+        ->add(Link::toUrl('personalCalendar', '<i class="fa fa-link"></i><span>Personal Calendar</span>'))
 //        ->add(
 //            Menu::fullsubmenuexample()
 //        )

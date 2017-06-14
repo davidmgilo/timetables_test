@@ -16,6 +16,7 @@ require('./bootstrap');
 Vue.component('example', require('./components/Example.vue'));
 // Vue.component('attendances', require('./components/Attendances.vue'));
 Vue.component('lessons', require('./components/Lessons.vue'));
+Vue.component('personal-calendar', require('./components/PersonalCalendar.vue'));
 
 Vue.component(
     'passport-clients',

@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/user', function () {
+    return Auth::user()->load('lessons');
 })->middleware('auth:api');
 
 //Route::group(['prefix' => 'v1',
@@ -24,3 +24,6 @@ Route::get('/user', function (Request $request) {
 //        Route::resource('attendances', 'AttendancesController');
 //
 //    });
+
+Route::get('/days','PersonalCalendarController@days');
+Route::get('/timeslots','PersonalCalendarController@timeslots');

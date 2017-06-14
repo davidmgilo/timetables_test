@@ -20,6 +20,8 @@ Route::group(['middleware' => 'auth'], function(){
         return view('tokens');
     });
     #adminlte_routes
+    Route::get('personalCalendar', 'PersonalCalendarController@index')->name('personalCalendar');
+
 
 //    Route::resource('attendances', 'AttendancesController');
 });

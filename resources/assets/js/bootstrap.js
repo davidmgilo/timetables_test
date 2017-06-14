@@ -18,6 +18,10 @@ require('icheck');
 
 require('sweetalert');
 
+require('moment')
+require('jquery-ui')
+require('fullcalendar')
+
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
  * using reactive data binding and reusable components. Vue's API is clean
