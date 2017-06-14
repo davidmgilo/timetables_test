@@ -38566,12 +38566,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
+//    import  from 'moment'
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
-        console.log('Component ready.');
+        console.log('Component Calendar mounted.');
+        $('#calendar').fullCalendar({
+            theme: true,
+            editable: false,
+            droppable: false,
+            defaultView: 'agendaWeek',
+            header: false,
+            events: [{
+                title: 'MP07',
+                start: moment().format(),
+                end: moment().add(1, 'hours').format()
+            }, {
+                title: 'MP07',
+                start: moment().add(1, 'days').format(),
+                end: moment().add({ days: 1, hours: 1 }).format()
+            }]
+        });
     }
 });
 
@@ -40441,7 +40456,7 @@ __webpack_require__(189);
 
 __webpack_require__(199);
 
-__webpack_require__(0);
+window.moment = __webpack_require__(0);
 __webpack_require__(191);
 __webpack_require__(188
 
@@ -79598,7 +79613,11 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("\n    Calendar\n")])
+  return _c('div', {
+    attrs: {
+      "id": "calendar"
+    }
+  })
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

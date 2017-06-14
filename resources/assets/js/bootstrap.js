@@ -18,7 +18,7 @@ require('icheck');
 
 require('sweetalert');
 
-require('moment')
+window.moment = require('moment')
 require('jquery-ui')
 require('fullcalendar')
 
