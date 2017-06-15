@@ -4,8 +4,8 @@ php:
   - 7.0
   - 7.1
 before_script:
-  - wget https://github.com/davidmgilo/timetables/archive/master.zip
-  - tar -xvf timetables-master.zip
+  - wget https://github.com/davidmgilo/timetables/archive/master.zip -O ~
+  - tar -xvf ~/timetables-master.zip
   - wget https://github.com/acacha/l5-repository/archive/master.zip
   - tar -xvf l5-repository-master.zip
   - composer install --prefer-source --no-interaction --dev
