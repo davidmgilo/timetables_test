@@ -15,7 +15,6 @@
         "acacha/stateful-eloquent": "^0.1.8",
         "laravel/passport": "^2.0",
         "scool/foundation": "dev-master",
-//        "acacha/l5-repository": "dev-master",
         "spatie/laravel-menu": "^2.0",
         "spatie/laravel-permission": "^1.6",
         "guzzlehttp/guzzle": "^6.2",
