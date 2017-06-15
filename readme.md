@@ -6,3 +6,13 @@
 
 
 App for testing the package [timetables](https://github.com/davidmgilo/timetables). 
+
+Links:
+
+* [Package](https://github.com/davidmgilo/timetables)
+* [Test Package](https://github.com/davidmgilo/timetables_test)
+* [Official Page](https://davidmgilo.github.io/LandingPage/)
+* [Demo](http://timetables.davidmartinez.sintesi.acacha.org:8080)
+* [API Docs](https://davidmgilo.github.io/TimetablesDocs/)
+* [Packagist](https://packagist.org/packages/davidmgilo/timetables)
+* [Presentation](https://davidmgilo.github.io/timetables-presentation/#/)
