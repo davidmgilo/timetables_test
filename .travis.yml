@@ -8,7 +8,7 @@ before_script:
   - wget https://github.com/davidmgilo/timetables/archive/master.zip -O ~/timetables-master.zip
   - unzip ~/timetables-master.zip
   - wget https://github.com/acacha/l5-repository/archive/master.zip -O ~/l5-repository-master.zip
-  - unzip l5-repository-master.zip
+  - unzip ~/l5-repository-master.zip
   - composer install --prefer-source --no-interaction --dev
   - cp .env.testing .env
   - touch database/database.sqlite
