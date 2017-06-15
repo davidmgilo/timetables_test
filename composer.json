@@ -62,6 +62,12 @@
             "php artisan optimize"
         ]
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/acacha/l5-repository"
+        }
+   ],
     "config": {
         "preferred-install": "dist"
     }
