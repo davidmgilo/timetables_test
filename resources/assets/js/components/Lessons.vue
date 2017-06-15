@@ -175,6 +175,7 @@
     import Pagination from './Pagination.vue'
     import Form from 'acacha-forms'
     import EventBus from './../eventBus'
+    import store from './../store'
     export default {
         components : { Lesson, Messages, Pagination },
         data() {
@@ -213,7 +214,7 @@
         },
         methods: {
             fetchData: function (page){
-                axios.get('api/v1/lessons?page=' + page).then((response) => {
+                axios.get(store.LESSONS_URI+'?page=' + page).then((response) => {
                     console.log(response.data)
                     this.lessons = response.data.data.data
                     this.to = response.data.data.to;
@@ -226,7 +227,7 @@
             },
             createLesson : function(){
                 var that = this
-                this.createForm.post('/api/v1/lessons')
+                this.createForm.post(store.LESSONS_URI)
                         .then(response => {
                             console.log(response)
                             EventBus.$emit('created', response.data.message)
@@ -254,7 +255,7 @@
                     },
                     function(isConfirm){
                         if (isConfirm) {
-                            axios.delete('/api/v1/lessons/' + funct.deleteId).then((response) => {
+                            axios.delete(store.LESSONS_URI + funct.deleteId).then((response) => {
                                 console.log(response)
                                 swal("Deleted!", "Your lesson has been deleted.", "success");
                             }, (response) => {
@@ -282,7 +283,7 @@
                 if(this.bufferedId == this.updateForm.user_id){
                     this.updateForm.user_id = ""
                 }
-                this.updateForm.put('/api/v1/lessons/' + that.updateId)
+                this.updateForm.put(store.LESSONS_URI + that.updateId)
                         .then(response => {
                             console.log(response)
                             EventBus.$emit('updated', response.data.message)
