@@ -12,7 +12,7 @@ before_script:
   - cp studio.travis.json studio.json
   - composer update
   - composer install --prefer-source --no-interaction --dev
-  - cp .env.testing .env
+  - cp .env.example .env
   - touch database/database.sqlite
   - php artisan migrate && php artisan passport:install
 
