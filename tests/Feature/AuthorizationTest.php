@@ -3,12 +3,11 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Tests\TestCase;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
+use Tests\TestCase;
 
 /**
- * Class MisTestos
+ * Class MisTestos.
  */
 class AuthorizationTest extends TestCase
 {
@@ -41,6 +40,7 @@ class AuthorizationTest extends TestCase
         Permission::create(['name' => 'browse lessons']);
         $user->givePermissionTo('browse lessons');
         $this->actingAs($user);
+
         return $user;
     }
 
@@ -48,7 +48,7 @@ class AuthorizationTest extends TestCase
     {
         $user = factory(\App\User::class)->create();
         $this->actingAs($user);
+
         return $user;
     }
-
 }

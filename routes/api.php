@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +24,5 @@ Route::get('/user', function () {
 //
 //    });
 
-Route::get('/days','PersonalCalendarController@days');
-Route::get('/timeslots','PersonalCalendarController@timeslots');
+Route::get('/days', 'PersonalCalendarController@days');
+Route::get('/timeslots', 'PersonalCalendarController@timeslots');

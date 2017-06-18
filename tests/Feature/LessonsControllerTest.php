@@ -3,14 +3,12 @@
 namespace Tests;
 
 use App\User;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Mockery;
 use Scool\Timetables\Repositories\LessonRepository;
 
 /**
- * Class LessonsControllerTest
+ * Class LessonsControllerTest.
  */
 class LessonsControllerTest extends BrowserKitTest
 {
@@ -30,7 +28,7 @@ class LessonsControllerTest extends BrowserKitTest
         // El que s'executa al final.
         Mockery::close();
     }
-    
+
     public function testIndexNotLogged()
     {
         $this->get('lessons');
@@ -39,7 +37,7 @@ class LessonsControllerTest extends BrowserKitTest
 
     public function testIndex()
     {
-//        dd(route('attendances.index'));
+        //        dd(route('attendances.index'));
 //        $attendances = factory(\Scool\Timetables\Models\Attendance::class,50)->create();
         $this->login();
 
@@ -69,7 +67,7 @@ class LessonsControllerTest extends BrowserKitTest
 
     public function testStore()
     {
-//        $this->login();
+        //        $this->login();
 //        $this->post('lessons');
 
 //        $this->assertRedirectedToRoute('attendances.create');
@@ -83,13 +81,14 @@ class LessonsControllerTest extends BrowserKitTest
 
     private function createDummyLessons()
     {
-        $lesson1= new \Scool\Timetables\Models\Lesson();
-        $lesson2= new \Scool\Timetables\Models\Lesson();
+        $lesson1 = new \Scool\Timetables\Models\Lesson();
+        $lesson2 = new \Scool\Timetables\Models\Lesson();
 
-        $lessons= [
+        $lessons = [
           $lesson1,
-            $lesson2
+            $lesson2,
         ];
+
         return collect($lessons);
     }
 }

@@ -5,14 +5,12 @@ namespace App;
 use App\Notifications\CustomResetPasswordNotification;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Scool\Foundation\User as FoundationUser;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
- * Class User
- * @package App
+ * Class User.
  */
 class User extends FoundationUser
 {
@@ -25,7 +23,7 @@ class User extends FoundationUser
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'github_id', 'avatar', 'facebook_id', 'google_id', 'twitter_id'
+        'name', 'email', 'password', 'github_id', 'avatar', 'facebook_id', 'google_id', 'twitter_id',
     ];
 
     /**
@@ -38,13 +36,13 @@ class User extends FoundationUser
     ];
 
     /**
-     * Send the password reset notification
+     * Send the password reset notification.
      *
      * @param string $token
      */
     public function sendPasswordResetNotification($token)
     {
-//        $when = Carbon::now()->addMinutes(1);
+        //        $when = Carbon::now()->addMinutes(1);
         $this->notify(new CustomResetPasswordNotification($token));
     }
 
@@ -52,5 +50,4 @@ class User extends FoundationUser
     {
         return $this->belongsToMany(\Scool\Timetables\Models\Lesson::class);
     }
-
 }

@@ -20,7 +20,7 @@ return [
     ],
 
     'ses' => [
-        'key' => env('SES_KEY'),
+        'key'    => env('SES_KEY'),
         'secret' => env('SES_SECRET'),
         'region' => 'us-east-1',
     ],
@@ -30,14 +30,14 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
-        'key' => env('STRIPE_KEY'),
+        'model'  => App\User::class,
+        'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
     'github' => [
-        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_id'     => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => env('GITHUB_URL'),
+        'redirect'      => env('GITHUB_URL'),
     ],
     'facebook' => [
         'client_id'     => env('FACEBOOK_CLIENT_ID'),
@@ -45,14 +45,14 @@ return [
         'redirect'      => env('FACEBOOK_URL'),
     ],
     'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => env('GOOGLE_URL'),
+        'redirect'      => env('GOOGLE_URL'),
     ],
     'twitter' => [
-        'client_id' => env('TWITTER_CLIENT_ID'),
+        'client_id'     => env('TWITTER_CLIENT_ID'),
         'client_secret' => env('TWITTER_CLIENT_SECRET'),
-        'redirect' => env('TWITTER_URL'),
+        'redirect'      => env('TWITTER_URL'),
     ],
 
     /*
@@ -61,7 +61,6 @@ return [
     | See: https://github.com/acacha/llum
     |
     */
-    #llum_services
-
+    //llum_services
 
 ];

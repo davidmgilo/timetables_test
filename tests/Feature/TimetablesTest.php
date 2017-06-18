@@ -2,12 +2,13 @@
 
 
 /**
- * Class MisTestos
+ * Class MisTestos.
  */
 class TimetablesTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test to know if there are shifts
+     * Test to know if there are shifts.
+     *
      * @test
      * @group failing
      */
@@ -19,5 +20,4 @@ class TimetablesTest extends PHPUnit_Framework_TestCase
         // Seeds/Models -> codi de laravel, no cal provar-lo.
         $this->assertTrue(true);
     }
-
 }
