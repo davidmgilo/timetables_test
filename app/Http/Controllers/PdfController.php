@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use View;
 
 /**
- * Class PdfController
- * @package App\Http\Controllers
+ * Class PdfController.
  */
 class PdfController extends Controller
 {

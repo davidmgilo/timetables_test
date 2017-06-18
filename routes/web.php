@@ -15,11 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile/tokens', function () {
         return view('tokens');
     });
-    #adminlte_routes
+    //adminlte_routes
     Route::get('personalCalendar', 'PersonalCalendarController@index')->name('personalCalendar');
 
     Route::get('dashboard/lessons/number', 'DashboardController@lessonsNumber')->name('lessons-number');

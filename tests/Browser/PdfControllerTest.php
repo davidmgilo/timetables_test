@@ -3,17 +3,16 @@
 namespace Tests\Browser;
 
 use App\User;
-use Tests\DuskTestCase;
-use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Laravel\Dusk\Browser;
+use Tests\DuskTestCase;
 
 /**
- * Class PdfControllerTest
- * @package Tests\Browser
+ * Class PdfControllerTest.
  */
 class PdfControllerTest extends DuskTestCase
 {
-//    use DatabaseMigrations;
+    //    use DatabaseMigrations;
 
     public function testBasicExample()
     {
@@ -23,7 +22,7 @@ class PdfControllerTest extends DuskTestCase
         });
     }
 
-    /**
+    /*
      * Test users are converted correctly to pdf..
      *
      * @return void
@@ -35,7 +34,7 @@ class PdfControllerTest extends DuskTestCase
 //        });
 //    }
 
-    /**
+    /*
      * Test users are converted correctly to pdf..
      *
      * @return void
@@ -57,7 +56,7 @@ class PdfControllerTest extends DuskTestCase
 //        });
 //    }
 
-    /**
+    /*
      * Create users.
      *
      * @param null $num
@@ -68,7 +67,7 @@ class PdfControllerTest extends DuskTestCase
 //      return factory(User::class,$num)->create();
 //    }
 
-    /**
+    /*
      * Test a user is converted correctly to pdf..
      * @group failing
      * @return void

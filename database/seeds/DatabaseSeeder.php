@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Scool\Timetables\Database\Seeds\TimetablesSeeder;
 
 /**
- * Class DatabaseSeeder
+ * Class DatabaseSeeder.
  */
 class DatabaseSeeder extends Seeder
 {

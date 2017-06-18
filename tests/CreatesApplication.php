@@ -2,10 +2,7 @@
 
 namespace Tests;
 
-
-
 use Illuminate\Contracts\Console\Kernel;
-
 use Illuminate\Contracts\Http\Kernel as Kern;
 
 trait CreatesApplication

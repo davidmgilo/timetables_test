@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Cache;
 use Scool\Timetables\Models\Lesson;
 
 class DashboardController extends Controller
 {
-
     public function lessonsNumber()
     {
-        $value = Cache::remember('lessonsNumber', 1, function (){
+        $value = Cache::remember('lessonsNumber', 1, function () {
             // IF cache MISS
             return Lesson::all()->count();
         });
+
         return $value;
     }
 
@@ -23,5 +22,4 @@ class DashboardController extends Controller
         $lesson = Lesson::create([]);
         echo $lesson;
     }
-
 }

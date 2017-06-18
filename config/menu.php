@@ -11,7 +11,7 @@ use Spatie\Menu\Laravel\Menu;
 //});
 
 Menu::macro('adminlteSubmenu', function ($submenuName) {
-    return Menu::new()->prepend('<a href="#"><span> ' . $submenuName . '</span> <i class="fa fa-angle-left pull-right"></i></a>')
+    return Menu::new()->prepend('<a href="#"><span> '.$submenuName.'</span> <i class="fa fa-angle-left pull-right"></i></a>')
         ->addParentClass('treeview')->addClass('treeview-menu');
 });
 Menu::macro('adminlteMenu', function () {
@@ -28,7 +28,7 @@ Menu::macro('sidebar', function () {
 //        ->url('http://www.google.com', 'Google')
 //        ->add(Link::toUrl('lessons', 'Lessons'))
         ->linkIfCan('browse lessons', '/lessons', 'Lessons')
-        #adminlte_menu
+        //adminlte_menu
         ->add(Link::toUrl('personalCalendar', '<i class="fa fa-link"></i><span>Personal Calendar</span>'))
 //        ->add(
 //            Menu::fullsubmenuexample()

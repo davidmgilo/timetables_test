@@ -3,9 +3,9 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class CustomResetPasswordNotification extends Notification implements ShouldQueue
 {
@@ -23,13 +23,14 @@ class CustomResetPasswordNotification extends Notification implements ShouldQueu
     public function __construct($token)
     {
         $this->token = $token;
-        $this->url = url('password/reset/' . $this->token);
+        $this->url = url('password/reset/'.$this->token);
     }
 
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
+     *
      * @return array
      */
     public function via($notifiable)
@@ -40,19 +41,21 @@ class CustomResetPasswordNotification extends Notification implements ShouldQueu
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
+     *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->markdown('mail.myreset',['url' => $this->url])
+        return (new MailMessage())->markdown('mail.myreset', ['url' => $this->url])
             ->subject('Timetables Reset Password');
     }
 
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
+     *
      * @return array
      */
     public function toArray($notifiable)
