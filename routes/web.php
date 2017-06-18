@@ -22,6 +22,9 @@ Route::group(['middleware' => 'auth'], function(){
     #adminlte_routes
     Route::get('personalCalendar', 'PersonalCalendarController@index')->name('personalCalendar');
 
+    Route::get('dashboard/lessons/number', 'DashboardController@lessonsNumber')->name('lessons-number');
+
+    Route::get('create/random/lesson', 'DashboardController@createRandomLesson')->name('createRandomLesson');
 
 //    Route::resource('attendances', 'AttendancesController');
 });

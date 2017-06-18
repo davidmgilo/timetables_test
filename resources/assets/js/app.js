@@ -7,6 +7,19 @@
 
 require('./bootstrap');
 
+import Vue2Filters from 'vue2-filters'
+
+window.Vue.use(Vue2Filters)
+
+import VueEcho from 'vue-echo';
+
+Vue.use(VueEcho, {
+    broadcaster: 'pusher',
+    key: 'f59e47e6baa10c0a0cf2',
+    cluster: 'eu',
+    encrypted: true
+});
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
